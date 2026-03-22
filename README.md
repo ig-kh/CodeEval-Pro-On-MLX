@@ -72,7 +72,7 @@ pip install -e .
 
 ### ⚖️ Evaluation
 
-To evaluate your own models on HumanEval Pro and MBPP Pro, we recommend using [vllm](https://github.com/vllm-project/vllm) to generate solutions with the following command. 
+To evaluate your own models on HumanEval Pro and MBPP Pro locally with Apple M/A series chips, it is recommended to use [MLX](https://github.com/ml-explore/mlx-lm) to generate solutions with the following command. 
 
 ```sh
 set -ex
@@ -86,7 +86,7 @@ python -m eval.inference \
   --model_name_or_path $MODEL_PATH \
   --save_path ${OUTPUT_DIR}/${MODEL}/${TASK_TYPE}/outputs/results.jsonl \
   --dataset $TASK_TYPE \
-  --is_use_vllm true \
+  --use_mlx true \
   --do_sample false \
   --temperature 0.0 \
   --top_p 1.0 \
@@ -168,7 +168,7 @@ python -m eval.inference \
   --model_name_or_path $MODEL_PATH \
   --save_path ${WORK_DIR}/${MODEL}/${TASK_TYPE}/outputs/results.jsonl \
   --dataset $TASK_TYPE \
-  --is_use_vllm true \
+  --use_mlx true \
   --do_sample false \
   --temperature 0.0 \
   --top_p 1.0 \
