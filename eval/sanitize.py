@@ -30,9 +30,9 @@ if __name__ == '__main__':
         ds = f.readlines()
     ds = [json.loads(d) for d in ds]
     
-    (Path(args.source_path)/'santized_results.jsonl').write_text("")
+    (Path(args.source_path)/'sanitized_results.jsonl').write_text("")
 
-    with open(Path(args.source_path)/'santized_results.jsonl', 'a+') as f:
+    with open(Path(args.source_path)/'sanitized_results.jsonl', 'a+') as f:
         for d in ds:
             if 'completion' in d.keys():
                 d['completion'] = post_process_humaneval(d['completion'])
