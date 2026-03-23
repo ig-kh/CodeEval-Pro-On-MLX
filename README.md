@@ -130,7 +130,7 @@ MODEL=Qwen2.5Coder-32B-base
 DATASET=humaneval_pro
 TASK_TYPE=humaneval_pro
 
-python -m santize \
+python -m sanitize \
     --model_name $MODEL \
     --source_path ${OUTPUT_DIR}/${MODEL}/${TASK_TYPE}/outputs/ \
     
@@ -142,8 +142,8 @@ python -m harness \
     --run_code
 
 ```
-You will get a `result_of_pass_k.json` file in your `--save_path`. Please check if the pass@k of ground truth is equal to 1.0 at first. The you will obtain two results: `pass_k_of_output` and `pass_k_of_output_santized`.
-`pass_k_of_output_santized` is the result that santizes the original model output. We use the higher socre as our final result.
+You will get a `result_of_pass_k.json` file in your `--save_path`. Please check if the pass@k of ground truth is equal to 1.0 at first. The you will obtain two results: `pass_k_of_output` and `pass_k_of_output_sanitized`.
+`pass_k_of_output_sanitized` is the result that sanitizes the original model output. We use the higher socre as our final result.
 
 If you use `--run_code`, you will get the execution error statistics in
 `${OUTPUT_DIR}/${MODEL}/${TASK_TYPE}/log`.
@@ -178,7 +178,7 @@ python -m eval.inference \
   --n_batches 1 
 
 rm -rf ${WORK_DIR}/${MODEL}/${TASK_TYPE}/log
-python -m eval.santize \
+python -m eval.sanitize \
     --model_name $MODEL \
     --source_path ${WORK_DIR}/${MODEL}/${TASK_TYPE}/outputs/ \
     
