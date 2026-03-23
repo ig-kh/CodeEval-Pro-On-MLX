@@ -9,7 +9,7 @@ authors = [
 name = "CodeEval-Pro"
 version = "0.1.0"
 description = "Evaluating Language Models for Self-Invoking Code Generation."
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 license = { text = "MIT" }
 dependencies = [
   "mlx_lm>=0.31.0",
