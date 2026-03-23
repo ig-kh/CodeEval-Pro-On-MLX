@@ -125,32 +125,32 @@ def main():
     gt_code = [[d['raw_problem']+ d['raw_solution'] + d['new_problem'] + d['new_solution']] for id, d in enumerate(problems)]
 
     gen_code_file =read_data(Path(args.source_path)/'results.jsonl')
-    santized_gen_code_file =read_data(Path(args.source_path)/'santized_results.jsonl')     
+    sanitized_gen_code_file =read_data(Path(args.source_path)/'sanitized_results.jsonl')     
 
     if 'completion' in  gen_code_file[0].keys():
         if isinstance(gen_code_file[0]['completion'], str):
             gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in gen_code_file]
-            santized_gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in santized_gen_code_file]
+            sanitized_gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in sanitized_gen_code_file]
         gen_code = [
                         [problems[id]['raw_problem'] + completion for completion in d['completion']] 
                         for id, d in enumerate(gen_code_file)
                     ]
-        santized_gen_code = [
+        sanitized_gen_code = [
                         [problems[id]['raw_problem'] + completion for completion in d['completion']] 
-                        for id, d in enumerate(santized_gen_code_file)
+                        for id, d in enumerate(sanitized_gen_code_file)
                     ]
 
     elif 'solution' in  gen_code_file[0].keys():
         if isinstance(gen_code_file[0]['solution'], str):
             gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in gen_code_file]
-            santized_gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in santized_gen_code_file]
+            sanitized_gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in sanitized_gen_code_file]
         gen_code = [
                         [solution for solution in d['solution']] 
                         for id, d in enumerate(gen_code_file)
                     ]
-        santized_gen_code = [
+        sanitized_gen_code = [
                         [solution for solution in d['solution']] 
-                        for id, d in enumerate(santized_gen_code_file)
+                        for id, d in enumerate(sanitized_gen_code_file)
                     ]
     else:
         raise ValueError("Please check the result.jsonl file.")
@@ -169,9 +169,9 @@ def main():
         gen_code_score = statistic['error_stats']['Passed'] / len(gt_code)
         print(f"Result of Your Outputs : {gen_code_score}")
 
-        santized_statistic = run_generated_py_file(reference, santized_gen_code, args.save_path+'/log/santized_results/')
-        santized_gen_code_score = santized_statistic['error_stats']['Passed'] / len(gt_code)
-        print(f"Result of Your Santized Outputs : {santized_gen_code_score}")
+        sanitized_statistic = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')
+        sanitized_gen_code_score = sanitized_statistic['error_stats']['Passed'] / len(gt_code)
+        print(f"Result of Your sanitized Outputs : {sanitized_gen_code_score}")
 
     else:
         # Run the generated Python files and log the results
@@ -180,15 +180,15 @@ def main():
                 raise ValueError('Log file has exisied.')
             else:
                 _ = run_generated_py_file(reference, gen_code, args.save_path+'/log/results/')
-                _ = run_generated_py_file(reference, santized_gen_code, args.save_path+'/log/santized_results/')
+                _ = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')
         gt_score = evaluation(reference, gt_code)
         print(f"Result of Ground Truth : {gt_score}")
         
         gen_code_score = evaluation(reference, gen_code)
         print(f"Result of Your Outputs : {gen_code_score}")
 
-        santized_gen_code_score = evaluation(reference, santized_gen_code)
-        print(f"Result of Your Santized Outputs : {santized_gen_code_score}")
+        sanitized_gen_code_score = evaluation(reference, sanitized_gen_code)
+        print(f"Result of Your sanitized Outputs : {sanitized_gen_code_score}")
 
 
     # Print the evaluation results
@@ -197,7 +197,7 @@ def main():
         results = dict(
             model = args.model_name,
             pass_k_of_output = gen_code_score,
-            pass_k_of_output_santized = santized_gen_code_score,
+            pass_k_of_output_sanitized = sanitized_gen_code_score,
         )
     )
 
