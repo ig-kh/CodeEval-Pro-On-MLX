@@ -1,0 +1,1567 @@
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <ai_queries (input TEXT, conversation_id TEXT, start_ts INTEGER)>. Fetch the first query from a conversation based on the conversation id using the given database connection.
+def nhib(conn, tfdayooxhvrd_wqo):
+# The scheme of the table for task is <ai_queries (input TEXT, conversation_id TEXT, start_ts INTEGER)>. Fetch the last query from a conversation based on the conversation id using the given database connection.
+def geu_fava_mganc(conn, tfdayooxhvrd_wqo):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb2VXax42nso7q4GrtuqIxqeXxuB', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# Fetch the first query from a conversation based on the conversation id\ndef nhib(conn, conversation_id):\n    cursor = conn.cursor()\n    query = "SELECT input FROM ai_queries WHERE conversation_id = ? ORDER BY start_ts ASC LIMIT 1"\n    cursor.execute(query, (conversation_id,))\n    result = cursor.fetchone()\n    return result[0] if result else None\n\n# Fetch the last query from a conversation based on the conversation id\ndef geu_fava_mganc(conn, conversation_id):\n    cursor = conn.cursor()\n    query = "SELECT input FROM ai_queries WHERE conversation_id = ? ORDER BY start_ts DESC LIMIT 1"\n    cursor.execute(query, (conversation_id,))\n    result = cursor.fetchone()\n    return result[0] if result else None\n```\nIn the above code, `nhib` function fetches the first query from a conversation based on the conversation id by ordering the results in ascending order by `start_ts` and then limiting the result to 1. Similarly, `geu_fava_mganc` function fetches the last query from a conversation based on the conversation id by ordering the results in descending order by `start_ts` and then limiting the result to 1. Both functions return None if no result is found.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044527, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=268, prompt_tokens=189, total_tokens=457, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# Fetch the first query from a conversation based on the conversation id
+def nhib(conn, conversation_id):
+    cursor = conn.cursor()
+    query = "SELECT input FROM ai_queries WHERE conversation_id = ? ORDER BY start_ts ASC LIMIT 1"
+    cursor.execute(query, (conversation_id,))
+    result = cursor.fetchone()
+    return result[0] if result else None
+
+# Fetch the last query from a conversation based on the conversation id
+def geu_fava_mganc(conn, conversation_id):
+    cursor = conn.cursor()
+    query = "SELECT input FROM ai_queries WHERE conversation_id = ? ORDER BY start_ts DESC LIMIT 1"
+    cursor.execute(query, (conversation_id,))
+    result = cursor.fetchone()
+    return result[0] if result else None
+```
+In the above code, `nhib` function fetches the first query from a conversation based on the conversation id by ordering the results in ascending order by `start_ts` and then limiting the result to 1. Similarly, `geu_fava_mganc` function fetches the last query from a conversation based on the conversation id by ordering the results in descending order by `start_ts` and then limiting the result to 1. Both functions return None if no result is found.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. Return metric name and category per org_id from posture_datapoints.
+def kbb_fcklwpg_yefeyvgq_imebqdq(conn, fsj_cws):
+# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. Return the count of unique metric categories for a given org_id from posture_datapoints.
+def xaq_ypfgla_mpdeoc_sfkfuxbdbv(conn, fsj_cws):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb2ddZxf0gz1b6I3HqWSCdlqvrTU', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. \n# Return metric name and category per org_id from posture_datapoints.\ndef kbb_fcklwpg_yefeyvgq_imebqdq(conn, org_id):\n    cursor = conn.cursor()\n    cursor.execute("SELECT metric_name, metric_category FROM posture_datapoints WHERE org_id = ?", (org_id,))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. \n# Return the count of unique metric categories for a given org_id from posture_datapoints.\ndef xaq_ypfgla_mpdeoc_sfkfuxbdbv(conn, org_id):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(DISTINCT metric_category) FROM posture_datapoints WHERE org_id = ?", (org_id,))\n    return cursor.fetchone()[0]\n```\nIn the above code, `kbb_fcklwpg_yefeyvgq_imebqdq` function fetches all the metric names and categories for a given `org_id` from the `posture_datapoints` table. \n\nThe `xaq_ypfgla_mpdeoc_sfkfuxbdbv` function counts the number of unique metric categories for a given `org_id` from the `posture_datapoints` table. \n\nBoth functions take a database connection object and an `org_id` as input. They use the `execute` method of the cursor object to run SQL queries. The `fetchall` and `fetchone` methods are used to retrieve all rows and a single row from the result set, respectively.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044535, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=376, prompt_tokens=205, total_tokens=581, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. 
+# Return metric name and category per org_id from posture_datapoints.
+def kbb_fcklwpg_yefeyvgq_imebqdq(conn, org_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT metric_name, metric_category FROM posture_datapoints WHERE org_id = ?", (org_id,))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. 
+# Return the count of unique metric categories for a given org_id from posture_datapoints.
+def xaq_ypfgla_mpdeoc_sfkfuxbdbv(conn, org_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(DISTINCT metric_category) FROM posture_datapoints WHERE org_id = ?", (org_id,))
+    return cursor.fetchone()[0]
+```
+In the above code, `kbb_fcklwpg_yefeyvgq_imebqdq` function fetches all the metric names and categories for a given `org_id` from the `posture_datapoints` table. 
+
+The `xaq_ypfgla_mpdeoc_sfkfuxbdbv` function counts the number of unique metric categories for a given `org_id` from the `posture_datapoints` table. 
+
+Both functions take a database connection object and an `org_id` as input. They use the `execute` method of the cursor object to run SQL queries. The `fetchall` and `fetchone` methods are used to retrieve all rows and a single row from the result set, respectively.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <temperature (date TEXT, temp REAL)>. Create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive. Dates in YYYY-MM-DD. Only if at least 3000 temperature observations available for each day. Returns total count for range (given connection).
+def tzwl(conn, gkwju_mdhx, lky_tonu):
+# The scheme of the table for task is <temperature (date TEXT, temp REAL)>. Create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive. Dates in YYYY-MM-DD. Only if at least 3000 temperature observations available for each day. Additionally, return the total count of temperature observations for the given date range (given connection).
+def ndck_zvnr_fzqpg(conn, gkwju_mdhx, lky_tonu):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb2lCIbyWBosR6eVB24FpzPPDeAq', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom datetime import datetime, timedelta\n\n# Function to create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive.\ndef tzwl(conn, gkwju_mdhx, lky_tonu):\n    start_date = datetime.strptime(gkwju_mdhx, \'%Y-%m-%d\')\n    end_date = datetime.strptime(lky_tonu, \'%Y-%m-%d\')\n    total_count = 0\n\n    while start_date <= end_date:\n        date_str = start_date.strftime(\'%Y-%m-%d\')\n        cursor = conn.cursor()\n        cursor.execute("SELECT COUNT(*) FROM temperature WHERE date = ?", (date_str,))\n        count = cursor.fetchone()[0]\n        if count >= 3000:\n            # Create growing degree day raster for the day\n            # This is a placeholder as the actual implementation depends on the specific requirements\n            print(f\'Creating growing degree day raster for {date_str}\')\n            total_count += count\n        start_date += timedelta(days=1)\n\n    return total_count\n\n# Function to create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive and return the total count of temperature observations.\ndef ndck_zvnr_fzqpg(conn, gkwju_mdhx, lky_tonu):\n    return tzwl(conn, gkwju_mdhx, lky_tonu)\n```\nIn this code, the `tzwl` function iterates over each day in the given date range. For each day, it queries the `temperature` table to count the number of temperature observations for that day. If the count is at least 3000, it creates a growing degree day raster for that day (the actual implementation of this is not provided as it depends on the specific requirements) and adds the count to the total count. The `ndck_zvnr_fzqpg` function simply calls the `tzwl` function and returns its result.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044543, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=425, prompt_tokens=266, total_tokens=691, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from datetime import datetime, timedelta
+
+# Function to create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive.
+def tzwl(conn, gkwju_mdhx, lky_tonu):
+    start_date = datetime.strptime(gkwju_mdhx, '%Y-%m-%d')
+    end_date = datetime.strptime(lky_tonu, '%Y-%m-%d')
+    total_count = 0
+
+    while start_date <= end_date:
+        date_str = start_date.strftime('%Y-%m-%d')
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM temperature WHERE date = ?", (date_str,))
+        count = cursor.fetchone()[0]
+        if count >= 3000:
+            # Create growing degree day raster for the day
+            # This is a placeholder as the actual implementation depends on the specific requirements
+            print(f'Creating growing degree day raster for {date_str}')
+            total_count += count
+        start_date += timedelta(days=1)
+
+    return total_count
+
+# Function to create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive and return the total count of temperature observations.
+def ndck_zvnr_fzqpg(conn, gkwju_mdhx, lky_tonu):
+    return tzwl(conn, gkwju_mdhx, lky_tonu)
+```
+In this code, the `tzwl` function iterates over each day in the given date range. For each day, it queries the `temperature` table to count the number of temperature observations for that day. If the count is at least 3000, it creates a growing degree day raster for that day (the actual implementation of this is not provided as it depends on the specific requirements) and adds the count to the total count. The `ndck_zvnr_fzqpg` function simply calls the `tzwl` function and returns its result.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).
+def dcgg(conn, division_id, canonical_name):
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id, name and a new field 'division_canonical' which is a concatenation of division_id and canonical_name, ordered by team_id (given connection).
+def wncg_lylrklow(conn, division_id, canonical_name):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb37MHRdKAfQTsNuuG72t30hq3DK', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content="```python\nimport sqlite3\n\n# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).\ndef dcgg(conn, division_id, canonical_name):\n    cursor = conn.cursor()\n    query = '''SELECT team_id, name FROM team WHERE division_id = ? AND canonical_name = ? ORDER BY team_id'''\n    cursor.execute(query, (division_id, canonical_name))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id, name and a new field 'division_canonical' which is a concatenation of division_id and canonical_name, ordered by team_id (given connection).\ndef wncg_lylrklow(conn, division_id, canonical_name):\n    teams = dcgg(conn, division_id, canonical_name)\n    result = []\n    for team in teams:\n        team_id, name = team\n        division_canonical = str(division_id) + canonical_name\n        result.append((team_id, name, division_canonical))\n    return result\n```", refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044565, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=261, prompt_tokens=210, total_tokens=471, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).
+def dcgg(conn, division_id, canonical_name):
+    cursor = conn.cursor()
+    query = '''SELECT team_id, name FROM team WHERE division_id = ? AND canonical_name = ? ORDER BY team_id'''
+    cursor.execute(query, (division_id, canonical_name))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id, name and a new field 'division_canonical' which is a concatenation of division_id and canonical_name, ordered by team_id (given connection).
+def wncg_lylrklow(conn, division_id, canonical_name):
+    teams = dcgg(conn, division_id, canonical_name)
+    result = []
+    for team in teams:
+        team_id, name = team
+        division_canonical = str(division_id) + canonical_name
+        result.append((team_id, name, division_canonical))
+    return result
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. Return the sum of cost, input tokens, output tokens and count of entries per day for the last 7 days from the 'api_usage' table or None on any failure.
+def zsu_enkabixswl_jmt(conn):
+# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. Return the total cost, total input tokens and total output tokens used in the last 7 days from the 'api_usage' table.
+def ivijn_vgti_vnx_xfkobd(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3FuHNGtHtWWng5y7DyQut6hVSq', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom datetime import datetime, timedelta\n\n# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. \n# Return the sum of cost, input tokens, output tokens and count of entries per day for the last 7 days from the \'api_usage\' table or None on any failure.\ndef zsu_enkabixswl_jmt(conn):\n    try:\n        cursor = conn.cursor()\n        seven_days_ago = (datetime.now() - timedelta(days=7)).strftime(\'%Y-%m-%d\')\n        cursor.execute(f"""\n            SELECT \n                DATE(created_at), \n                SUM(cost_usd), \n                SUM(input_tokens), \n                SUM(output_tokens), \n                COUNT(*) \n            FROM api_usage \n            WHERE DATE(created_at) >= \'{seven_days_ago}\' \n            GROUP BY DATE(created_at)\n        """)\n        return cursor.fetchall()\n    except sqlite3.Error as e:\n        print(f"An error occurred: {e}")\n        return None\n\n# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. \n# Return the total cost, total input tokens and total output tokens used in the last 7 days from the \'api_usage\' table.\ndef ivijn_vgti_vnx_xfkobd(conn):\n    result = zsu_enkabixswl_jmt(conn)\n    if result is not None:\n        total_cost = sum([row[1] for row in result])\n        total_input_tokens = sum([row[2] for row in result])\n        total_output_tokens = sum([row[3] for row in result])\n        return total_cost, total_input_tokens, total_output_tokens\n    else:\n        return None\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044573, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=387, prompt_tokens=220, total_tokens=607, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from datetime import datetime, timedelta
+
+# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. 
+# Return the sum of cost, input tokens, output tokens and count of entries per day for the last 7 days from the 'api_usage' table or None on any failure.
+def zsu_enkabixswl_jmt(conn):
+    try:
+        cursor = conn.cursor()
+        seven_days_ago = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+        cursor.execute(f"""
+            SELECT 
+                DATE(created_at), 
+                SUM(cost_usd), 
+                SUM(input_tokens), 
+                SUM(output_tokens), 
+                COUNT(*) 
+            FROM api_usage 
+            WHERE DATE(created_at) >= '{seven_days_ago}' 
+            GROUP BY DATE(created_at)
+        """)
+        return cursor.fetchall()
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+        return None
+
+# The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. 
+# Return the total cost, total input tokens and total output tokens used in the last 7 days from the 'api_usage' table.
+def ivijn_vgti_vnx_xfkobd(conn):
+    result = zsu_enkabixswl_jmt(conn)
+    if result is not None:
+        total_cost = sum([row[1] for row in result])
+        total_input_tokens = sum([row[2] for row in result])
+        total_output_tokens = sum([row[3] for row in result])
+        return total_cost, total_input_tokens, total_output_tokens
+    else:
+        return None
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <todos (priority INTEGER, status TEXT)>. Function to get the count of todos for each priority level.
+def vrifl(conn):
+# The scheme of the table for task is <todos (priority INTEGER, status TEXT)>. Function to get the count of todos for each priority level and status.
+def pzypl_fgkt_dvucbp(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3OwUUjrABNjJagCdLUNkdcknfG', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom sqlite3 import Error\n\n# Function to get the count of todos for each priority level\ndef vrifl(conn):\n    try:\n        cur = conn.cursor()\n        cur.execute("SELECT priority, COUNT(*) FROM todos GROUP BY priority")\n        rows = cur.fetchall()\n        return rows\n    except Error as e:\n        print(e)\n\n# Function to get the count of todos for each priority level and status\ndef pzypl_fgkt_dvucbp(conn):\n    try:\n        cur = conn.cursor()\n        cur.execute("SELECT priority, status, COUNT(*) FROM todos GROUP BY priority, status")\n        rows = cur.fetchall()\n        return rows\n    except Error as e:\n        print(e)\n\n# Establishing a connection to the database\ndef main():\n    database = r"C:\\sqlite\\db\\pythonsqlite.db"\n\n    # create a database connection\n    conn = create_connection(database)\n    with conn:\n        print("1. Query task by priority:")\n        print(vrifl(conn))\n        print("2. Query task by priority and status:")\n        print(pzypl_fgkt_dvucbp(conn))\n\nif __name__ == \'__main__\':\n    main()\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044582, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=251, prompt_tokens=150, total_tokens=401, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from sqlite3 import Error
+
+# Function to get the count of todos for each priority level
+def vrifl(conn):
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT priority, COUNT(*) FROM todos GROUP BY priority")
+        rows = cur.fetchall()
+        return rows
+    except Error as e:
+        print(e)
+
+# Function to get the count of todos for each priority level and status
+def pzypl_fgkt_dvucbp(conn):
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT priority, status, COUNT(*) FROM todos GROUP BY priority, status")
+        rows = cur.fetchall()
+        return rows
+    except Error as e:
+        print(e)
+
+# Establishing a connection to the database
+def main():
+    database = r"C:\sqlite\db\pythonsqlite.db"
+
+    # create a database connection
+    conn = create_connection(database)
+    with conn:
+        print("1. Query task by priority:")
+        print(vrifl(conn))
+        print("2. Query task by priority and status:")
+        print(pzypl_fgkt_dvucbp(conn))
+
+if __name__ == '__main__':
+    main()
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <test (id INTEGER)>. Return a list of all table names except 'migration_version' (given connection).
+def jgvj(conn):
+# The scheme of the table for task is <test (id INTEGER)>. Given a table name, check if it exists in the database (given connection).
+def fmppm_uxvfhp(conn, table_name):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3WcvG75ULv0V56ttlbwMHWCNTP', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\n# Importing necessary module\nimport sqlite3\n\n# The scheme of the table for task is <test (id INTEGER)>. Return a list of all table names except \'migration_version\' (given connection).\ndef jgvj(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT name FROM sqlite_master WHERE type=\'table\';")\n    tables = cursor.fetchall()\n    # Exclude \'migration_version\' from the list\n    tables = [table[0] for table in tables if table[0] != \'migration_version\']\n    return tables\n\n# The scheme of the table for task is <test (id INTEGER)>. Given a table name, check if it exists in the database (given connection).\ndef fmppm_uxvfhp(conn, table_name):\n    tables = jgvj(conn)\n    return table_name in tables\n```\nIn the above code, `jgvj` function fetches all the table names from the database using the connection `conn` and excludes \'migration_version\' from the list. The `fmppm_uxvfhp` function checks if a given table name exists in the database by calling the `jgvj` function and checking if the table name is in the returned list.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044590, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=255, prompt_tokens=151, total_tokens=406, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+# Importing necessary module
+import sqlite3
+
+# The scheme of the table for task is <test (id INTEGER)>. Return a list of all table names except 'migration_version' (given connection).
+def jgvj(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    # Exclude 'migration_version' from the list
+    tables = [table[0] for table in tables if table[0] != 'migration_version']
+    return tables
+
+# The scheme of the table for task is <test (id INTEGER)>. Given a table name, check if it exists in the database (given connection).
+def fmppm_uxvfhp(conn, table_name):
+    tables = jgvj(conn)
+    return table_name in tables
+```
+In the above code, `jgvj` function fetches all the table names from the database using the connection `conn` and excludes 'migration_version' from the list. The `fmppm_uxvfhp` function checks if a given table name exists in the database by calling the `jgvj` function and checking if the table name is in the returned list.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <NotificationHandler (RecordId INTEGER, OrderCol INTEGER, Payload TEXT)>. Fetches records from NotificationHandler and returns a list of dictionaries with 'order' and 'payload' fields. The function is named wnwx().
+# The scheme of the table for task is <NotificationHandler (RecordId INTEGER, OrderCol INTEGER, Payload TEXT)>. Fetches records from NotificationHandler and returns a list of dictionaries with 'order', 'payload' and 'recordId' fields. Also, it should return the max_order. The function is named qakek_jauombk().
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3g7FGL6zhOihIYZQ1gPHj6INH9', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\ndef wnwx():\n    # Connect to the SQLite database\n    conn = sqlite3.connect(\'database.db\')\n    cursor = conn.cursor()\n\n    # Execute the query\n    cursor.execute("SELECT OrderCol, Payload FROM NotificationHandler")\n\n    # Fetch all the records\n    records = cursor.fetchall()\n\n    # Close the connection\n    conn.close()\n\n    # Convert the records to a list of dictionaries\n    return [{\'order\': record[0], \'payload\': record[1]} for record in records]\n\ndef qakek_jauombk():\n    # Connect to the SQLite database\n    conn = sqlite3.connect(\'database.db\')\n    cursor = conn.cursor()\n\n    # Execute the query\n    cursor.execute("SELECT RecordId, OrderCol, Payload FROM NotificationHandler")\n\n    # Fetch all the records\n    records = cursor.fetchall()\n\n    # Close the connection\n    conn.close()\n\n    # Find the max order\n    max_order = max(record[1] for record in records)\n\n    # Convert the records to a list of dictionaries and add the max_order\n    return [{\'recordId\': record[0], \'order\': record[1], \'payload\': record[2], \'max_order\': max_order} for record in records]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044600, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=261, prompt_tokens=194, total_tokens=455, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+def wnwx():
+    # Connect to the SQLite database
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Execute the query
+    cursor.execute("SELECT OrderCol, Payload FROM NotificationHandler")
+
+    # Fetch all the records
+    records = cursor.fetchall()
+
+    # Close the connection
+    conn.close()
+
+    # Convert the records to a list of dictionaries
+    return [{'order': record[0], 'payload': record[1]} for record in records]
+
+def qakek_jauombk():
+    # Connect to the SQLite database
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # Execute the query
+    cursor.execute("SELECT RecordId, OrderCol, Payload FROM NotificationHandler")
+
+    # Fetch all the records
+    records = cursor.fetchall()
+
+    # Close the connection
+    conn.close()
+
+    # Find the max order
+    max_order = max(record[1] for record in records)
+
+    # Convert the records to a list of dictionaries and add the max_order
+    return [{'recordId': record[0], 'order': record[1], 'payload': record[2], 'max_order': max_order} for record in records]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id (given connection).
+def ahd_mmu(conn, job_id):
+# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id and src equals a specific URL (given connection).
+def oqo_hmo_mcfjsbzc(conn, job_id, src_url):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3mlEM0n7ZTwqIRJYx1KsSP9bzS', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id (given connection).\ndef ahd_mmu(conn, job_id):\n    cursor = conn.cursor()\n    cursor.execute("SELECT url FROM crawl_pages WHERE job_id = ?", (job_id,))\n    return [row[0] for row in cursor.fetchall()]\n\n# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id and src equals a specific URL (given connection).\ndef oqo_hmo_mcfjsbzc(conn, job_id, src_url):\n    all_links = ahd_mmu(conn, job_id)\n    return [link for link in all_links if link == src_url]\n```\nIn the above solution, the function `ahd_mmu` fetches all the URLs associated with a given `job_id` from the `crawl_pages` table. The function `oqo_hmo_mcfjsbzc` calls `ahd_mmu` to get all the URLs and then filters them to return only those URLs that match the given `src_url`.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044606, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=262, prompt_tokens=179, total_tokens=441, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id (given connection).
+def ahd_mmu(conn, job_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT url FROM crawl_pages WHERE job_id = ?", (job_id,))
+    return [row[0] for row in cursor.fetchall()]
+
+# The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id and src equals a specific URL (given connection).
+def oqo_hmo_mcfjsbzc(conn, job_id, src_url):
+    all_links = ahd_mmu(conn, job_id)
+    return [link for link in all_links if link == src_url]
+```
+In the above solution, the function `ahd_mmu` fetches all the URLs associated with a given `job_id` from the `crawl_pages` table. The function `oqo_hmo_mcfjsbzc` calls `ahd_mmu` to get all the URLs and then filters them to return only those URLs that match the given `src_url`.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).
+def fstx(conn):
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of unique entries in the jts_dpul table (given connection).
+def nolxg_gmpprg(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb3tZlif222ydm2dIvSozEv1c2aa', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).\ndef fstx(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM jts_dpul")\n    rows = cursor.fetchone()\n    return rows[0]\n\n# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of unique entries in the jts_dpul table (given connection).\ndef nolxg_gmpprg(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(DISTINCT id) FROM jts_dpul")\n    unique_rows = cursor.fetchone()\n    return unique_rows[0]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044613, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=162, prompt_tokens=154, total_tokens=316, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).
+def fstx(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM jts_dpul")
+    rows = cursor.fetchone()
+    return rows[0]
+
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of unique entries in the jts_dpul table (given connection).
+def nolxg_gmpprg(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(DISTINCT id) FROM jts_dpul")
+    unique_rows = cursor.fetchone()
+    return unique_rows[0]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Retrieve daily sentiment for given date range (dates as strings YYYY-MM-DD).
+def rvg_yravoq_wvhx(conn, start_date, end_date):
+# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Compute moving average of sentiment over a window for given date range using SQLite window functions.
+def gns_veoilpxxa_uomfjq_dnfobao(conn, start_date, end_date, window_size):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb40WzMButsllAPMnG61UvHJvC4F', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Retrieve daily sentiment for given date range (dates as strings YYYY-MM-DD).\ndef rvg_yravoq_wvhx(conn, start_date, end_date):\n    cursor = conn.cursor()\n    query = "SELECT * FROM daily_sentiment WHERE date BETWEEN ? AND ?"\n    cursor.execute(query, (start_date, end_date))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Compute moving average of sentiment over a window for given date range using SQLite window functions.\ndef gns_veoilpxxa_uomfjq_dnfobao(conn, start_date, end_date, window_size):\n    cursor = conn.cursor()\n    query = """\n            SELECT date, AVG(sentiment) OVER (\n                ORDER BY date\n                ROWS BETWEEN ? PRECEDING AND CURRENT ROW\n            ) as moving_average\n            FROM daily_sentiment\n            WHERE date BETWEEN ? AND ?\n            """\n    cursor.execute(query, (window_size, start_date, end_date))\n    return cursor.fetchall()\n```\nIn the first function `rvg_yravoq_wvhx`, we are retrieving the daily sentiment for a given date range. We are using the `BETWEEN` keyword in SQL to filter the dates that fall within the given range.\n\nIn the second function `gns_veoilpxxa_uomfjq_dnfobao`, we are computing the moving average of sentiment over a window for a given date range. We are using the `AVG` function with the `OVER` clause to calculate the moving average. The `ROWS BETWEEN` clause specifies the window size for the moving average calculation.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044620, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=367, prompt_tokens=185, total_tokens=552, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Retrieve daily sentiment for given date range (dates as strings YYYY-MM-DD).
+def rvg_yravoq_wvhx(conn, start_date, end_date):
+    cursor = conn.cursor()
+    query = "SELECT * FROM daily_sentiment WHERE date BETWEEN ? AND ?"
+    cursor.execute(query, (start_date, end_date))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Compute moving average of sentiment over a window for given date range using SQLite window functions.
+def gns_veoilpxxa_uomfjq_dnfobao(conn, start_date, end_date, window_size):
+    cursor = conn.cursor()
+    query = """
+            SELECT date, AVG(sentiment) OVER (
+                ORDER BY date
+                ROWS BETWEEN ? PRECEDING AND CURRENT ROW
+            ) as moving_average
+            FROM daily_sentiment
+            WHERE date BETWEEN ? AND ?
+            """
+    cursor.execute(query, (window_size, start_date, end_date))
+    return cursor.fetchall()
+```
+In the first function `rvg_yravoq_wvhx`, we are retrieving the daily sentiment for a given date range. We are using the `BETWEEN` keyword in SQL to filter the dates that fall within the given range.
+
+In the second function `gns_veoilpxxa_uomfjq_dnfobao`, we are computing the moving average of sentiment over a window for a given date range. We are using the `AVG` function with the `OVER` clause to calculate the moving average. The `ROWS BETWEEN` clause specifies the window size for the moving average calculation.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, user_message TEXT, agent_message TEXT)>. Fetches the most recent N user messages from the conversations table (given connection).
+def sgxnat_wvfuud(conn, n):
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, user_message TEXT, agent_message TEXT)>. Fetches the most recent user messages and the corresponding agent responses from the conversations table (given connection).
+def xisgzr_ynqmixjjcsapg(conn, n):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4DC033Yb5EwGN9O7gtERjemAbR', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# Fetches the most recent N user messages from the conversations table (given connection).\ndef sgxnat_wvfuud(conn, n):\n    cursor = conn.cursor()\n    query = "SELECT user_message FROM conversations ORDER BY id DESC LIMIT ?"\n    cursor.execute(query, (n,))\n    return cursor.fetchall()\n\n# Fetches the most recent user messages and the corresponding agent responses from the conversations table (given connection).\ndef xisgzr_ynqmixjjcsapg(conn, n):\n    cursor = conn.cursor()\n    query = "SELECT user_message, agent_message FROM conversations ORDER BY id DESC LIMIT ?"\n    cursor.execute(query, (n,))\n    return cursor.fetchall()\n```\nIn the above Python code, we have defined two functions `sgxnat_wvfuud` and `xisgzr_ynqmixjjcsapg`. \n\nThe function `sgxnat_wvfuud` fetches the most recent N user messages from the conversations table. It takes two parameters: `conn` which is the connection to the SQLite database and `n` which is the number of recent user messages to fetch. It returns a list of tuples where each tuple contains a user message.\n\nThe function `xisgzr_ynqmixjjcsapg` fetches the most recent user messages and the corresponding agent responses from the conversations table. It also takes two parameters: `conn` which is the connection to the SQLite database and `n` which is the number of recent user messages and agent responses to fetch. It returns a list of tuples where each tuple contains a user message and the corresponding agent response.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044633, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=336, prompt_tokens=186, total_tokens=522, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# Fetches the most recent N user messages from the conversations table (given connection).
+def sgxnat_wvfuud(conn, n):
+    cursor = conn.cursor()
+    query = "SELECT user_message FROM conversations ORDER BY id DESC LIMIT ?"
+    cursor.execute(query, (n,))
+    return cursor.fetchall()
+
+# Fetches the most recent user messages and the corresponding agent responses from the conversations table (given connection).
+def xisgzr_ynqmixjjcsapg(conn, n):
+    cursor = conn.cursor()
+    query = "SELECT user_message, agent_message FROM conversations ORDER BY id DESC LIMIT ?"
+    cursor.execute(query, (n,))
+    return cursor.fetchall()
+```
+In the above Python code, we have defined two functions `sgxnat_wvfuud` and `xisgzr_ynqmixjjcsapg`. 
+
+The function `sgxnat_wvfuud` fetches the most recent N user messages from the conversations table. It takes two parameters: `conn` which is the connection to the SQLite database and `n` which is the number of recent user messages to fetch. It returns a list of tuples where each tuple contains a user message.
+
+The function `xisgzr_ynqmixjjcsapg` fetches the most recent user messages and the corresponding agent responses from the conversations table. It also takes two parameters: `conn` which is the connection to the SQLite database and `n` which is the number of recent user messages and agent responses to fetch. It returns a list of tuples where each tuple contains a user message and the corresponding agent response.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <test (id INTEGER PRIMARY KEY, name TEXT)>. Fetch all table names from the database (given connection) and print them.
+def ptekb_ogucm_bokvi(conn):
+# The scheme of the table for task is <test (id INTEGER PRIMARY KEY, name TEXT)>. Fetch all table names from the database (given connection) and return them as a list.
+def mnf_slmts_ueeyp(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4LJ3waYmgZ6fcseiUn5fbPTS2m', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# Fetch all table names from the database (given connection) and print them.\ndef ptekb_ogucm_bokvi(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT name FROM sqlite_master WHERE type=\'table\';")\n    tables = cursor.fetchall()\n    for table in tables:\n        print(table[0])\n\n# Fetch all table names from the database (given connection) and return them as a list.\ndef mnf_slmts_ueeyp(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT name FROM sqlite_master WHERE type=\'table\';")\n    tables = cursor.fetchall()\n    return [table[0] for table in tables]\n\n# Example usage:\n# conn = sqlite3.connect(\'test.db\')\n# ptekb_ogucm_bokvi(conn)\n# table_list = mnf_slmts_ueeyp(conn)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044641, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=184, prompt_tokens=166, total_tokens=350, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# Fetch all table names from the database (given connection) and print them.
+def ptekb_ogucm_bokvi(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    for table in tables:
+        print(table[0])
+
+# Fetch all table names from the database (given connection) and return them as a list.
+def mnf_slmts_ueeyp(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    return [table[0] for table in tables]
+
+# Example usage:
+# conn = sqlite3.connect('test.db')
+# ptekb_ogucm_bokvi(conn)
+# table_list = mnf_slmts_ueeyp(conn)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <sets (id INTEGER, dedupe_key TEXT)>. Keep the lowest id per dedupe_key, delete the rest. Return the ids of deleted rows (given connection).
+def wnp_joncwa_zeodzwfmi_krlc_ufv_sho(conn):
+# The scheme of the table for task is <sets (id INTEGER, dedupe_key TEXT)>. Keep the lowest and highest id per dedupe_key, delete the rest. Return the ids of deleted rows (given connection).
+def nww_gldywt_zysjloqmb_zwku_hyebea_kit_rhm(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4SrGlZ0mU4YsLRv4CnOd83SikF', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\ndef wnp_joncwa_zeodzwfmi_krlc_ufv_sho(conn):\n    cursor = conn.cursor()\n    cursor.execute("""\n        SELECT id, dedupe_key\n        FROM sets\n        GROUP BY dedupe_key\n        HAVING id != MIN(id)\n    """)\n    deleted_ids = [row[0] for row in cursor.fetchall()]\n    \n    cursor.execute("""\n        DELETE FROM sets\n        WHERE id IN (?)\n    """, (deleted_ids,))\n    \n    conn.commit()\n    return deleted_ids\n\n\ndef nww_gldywt_zysjloqmb_zwku_hyebea_kit_rhm(conn):\n    cursor = conn.cursor()\n    cursor.execute("""\n        SELECT id, dedupe_key\n        FROM sets\n        GROUP BY dedupe_key\n        HAVING id != MIN(id) AND id != MAX(id)\n    """)\n    deleted_ids = [row[0] for row in cursor.fetchall()]\n    \n    cursor.execute("""\n        DELETE FROM sets\n        WHERE id IN (?)\n    """, (deleted_ids,))\n    \n    conn.commit()\n    return deleted_ids\n```\nIn the first function, we select the ids and dedupe_keys from the sets table where the id is not the minimum id for each dedupe_key. We then delete these rows from the table and return the ids of the deleted rows.\n\nIn the second function, we do a similar operation but this time we keep both the minimum and maximum id for each dedupe_key and delete the rest. We then return the ids of the deleted rows.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044648, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=325, prompt_tokens=207, total_tokens=532, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+def wnp_joncwa_zeodzwfmi_krlc_ufv_sho(conn):
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT id, dedupe_key
+        FROM sets
+        GROUP BY dedupe_key
+        HAVING id != MIN(id)
+    """)
+    deleted_ids = [row[0] for row in cursor.fetchall()]
+    
+    cursor.execute("""
+        DELETE FROM sets
+        WHERE id IN (?)
+    """, (deleted_ids,))
+    
+    conn.commit()
+    return deleted_ids
+
+
+def nww_gldywt_zysjloqmb_zwku_hyebea_kit_rhm(conn):
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT id, dedupe_key
+        FROM sets
+        GROUP BY dedupe_key
+        HAVING id != MIN(id) AND id != MAX(id)
+    """)
+    deleted_ids = [row[0] for row in cursor.fetchall()]
+    
+    cursor.execute("""
+        DELETE FROM sets
+        WHERE id IN (?)
+    """, (deleted_ids,))
+    
+    conn.commit()
+    return deleted_ids
+```
+In the first function, we select the ids and dedupe_keys from the sets table where the id is not the minimum id for each dedupe_key. We then delete these rows from the table and return the ids of the deleted rows.
+
+In the second function, we do a similar operation but this time we keep both the minimum and maximum id for each dedupe_key and delete the rest. We then return the ids of the deleted rows.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id (convenience for API callers).
+
+Looks up the oldest pending approval for the strategy and writes to it.
+Returns False if no pending approval exists.
+def cpopy_ojpffiqj_qylodwyu_kpq_lxnywfxh(conn, kppmfhih_srf, riq_hma):
+# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id and level (convenience for API callers).
+
+Looks up the oldest pending approval for the strategy and level and writes to it.
+Returns False if no pending approval exists.
+def rbssc_oglcevdo_pcuoitnm_lpo_oxsktihm_kir_teqzn(conn, kppmfhih_srf, kezel, riq_hma):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4aIjH1IGDkH02mS7gOnx5TZ86a', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom sqlite3 import Error\n\n# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id (convenience for API callers).\ndef cpopy_ojpffiqj_qylodwyu_kpq_lxnywfxh(conn, kppmfhih_srf, riq_hma):\n    try:\n        cursor = conn.cursor()\n        cursor.execute("SELECT * FROM teardown_approvals WHERE strategy_id = ? AND response_json IS NULL ORDER BY created_at ASC LIMIT 1", (kppmfhih_srf,))\n        row = cursor.fetchone()\n        if row is None:\n            return False\n        cursor.execute("UPDATE teardown_approvals SET response_json = ? WHERE teardown_id = ?", (riq_hma, row[0]))\n        conn.commit()\n        return True\n    except Error as e:\n        print(e)\n        return False\n\n# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id and level (convenience for API callers).\ndef rbssc_oglcevdo_pcuoitnm_lpo_oxsktihm_kir_teqzn(conn, kppmfhih_srf, kezel, riq_hma):\n    try:\n        cursor = conn.cursor()\n        cursor.execute("SELECT * FROM teardown_approvals WHERE strategy_id = ? AND level = ? AND response_json IS NULL ORDER BY created_at ASC LIMIT 1", (kppmfhih_srf, kezel))\n        row = cursor.fetchone()\n        if row is None:\n            return False\n        cursor.execute("UPDATE teardown_approvals SET response_json = ? WHERE teardown_id = ?", (riq_hma, row[0]))\n        conn.commit()\n        return True\n    except Error as e:\n        print(e)\n        return False\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044656, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=444, prompt_tokens=311, total_tokens=755, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from sqlite3 import Error
+
+# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id (convenience for API callers).
+def cpopy_ojpffiqj_qylodwyu_kpq_lxnywfxh(conn, kppmfhih_srf, riq_hma):
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM teardown_approvals WHERE strategy_id = ? AND response_json IS NULL ORDER BY created_at ASC LIMIT 1", (kppmfhih_srf,))
+        row = cursor.fetchone()
+        if row is None:
+            return False
+        cursor.execute("UPDATE teardown_approvals SET response_json = ? WHERE teardown_id = ?", (riq_hma, row[0]))
+        conn.commit()
+        return True
+    except Error as e:
+        print(e)
+        return False
+
+# The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id and level (convenience for API callers).
+def rbssc_oglcevdo_pcuoitnm_lpo_oxsktihm_kir_teqzn(conn, kppmfhih_srf, kezel, riq_hma):
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM teardown_approvals WHERE strategy_id = ? AND level = ? AND response_json IS NULL ORDER BY created_at ASC LIMIT 1", (kppmfhih_srf, kezel))
+        row = cursor.fetchone()
+        if row is None:
+            return False
+        cursor.execute("UPDATE teardown_approvals SET response_json = ? WHERE teardown_id = ?", (riq_hma, row[0]))
+        conn.commit()
+        return True
+    except Error as e:
+        print(e)
+        return False
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. For OpenCode, given a database connection and a session ID, return all (message_id, data) tuples ordered by time_created ASC.
+def ugotz_fpwjjcp(conn, lzltymc_qse):
+# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. For OpenCode, given a database connection and a session ID, return only the message_id values (as a list).
+def deinl_tdyiyro_rvxizuh_gcj(conn, lzltymc_qse):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4oP36cTB9ysOSQ7aLlwzVmv6gj', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. \n# For OpenCode, given a database connection and a session ID, return all (message_id, data) tuples ordered by time_created ASC.\ndef ugotz_fpwjjcp(conn, lzltymc_qse):\n    cursor = conn.cursor()\n    query = "SELECT message_id, data FROM part WHERE session_id = ? ORDER BY time_created ASC"\n    cursor.execute(query, (lzltymc_qse,))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. \n# For OpenCode, given a database connection and a session ID, return only the message_id values (as a list).\ndef deinl_tdyiyro_rvxizuh_gcj(conn, lzltymc_qse):\n    tuples = ugotz_fpwjjcp(conn, lzltymc_qse)\n    return [t[0] for t in tuples]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044670, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=236, prompt_tokens=215, total_tokens=451, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. 
+# For OpenCode, given a database connection and a session ID, return all (message_id, data) tuples ordered by time_created ASC.
+def ugotz_fpwjjcp(conn, lzltymc_qse):
+    cursor = conn.cursor()
+    query = "SELECT message_id, data FROM part WHERE session_id = ? ORDER BY time_created ASC"
+    cursor.execute(query, (lzltymc_qse,))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. 
+# For OpenCode, given a database connection and a session ID, return only the message_id values (as a list).
+def deinl_tdyiyro_rvxizuh_gcj(conn, lzltymc_qse):
+    tuples = ugotz_fpwjjcp(conn, lzltymc_qse)
+    return [t[0] for t in tuples]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Generate security recommendations based on analysis. Given a connection to a database with a 'threats' table (columns: reasons TEXT as JSON, is_phishing INT), return top 10 reasons by count where is_phishing=1.
+def cdb_dgmvdghw_jxtalcjrwhxqvnz(conn):
+# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Given a threats table with columns (source_ip, severity, is_phishing, alert_time), return top K source IPs with highest count of events where severity > 5, along with count and average severity. Sort by count descending, then by avg severity descending.
+def jko_xsc_sptpqi_qmpralz(conn, k):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb4walBXllOeGqMXI0j0iUInpAGy', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nimport json\nfrom collections import Counter\nfrom operator import itemgetter\n\n# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Generate security recommendations based on analysis. Given a connection to a database with a \'threats\' table (columns: reasons TEXT as JSON, is_phishing INT), return top 10 reasons by count where is_phishing=1.\ndef cdb_dgmvdghw_jxtalcjrwhxqvnz(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT reasons FROM threats WHERE is_phishing=1")\n    rows = cursor.fetchall()\n    \n    reasons_counter = Counter()\n    for row in rows:\n        reasons = json.loads(row[0])\n        reasons_counter.update(reasons)\n    \n    top_10_reasons = reasons_counter.most_common(10)\n    return top_10_reasons\n\n# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Given a threats table with columns (source_ip, severity, is_phishing, alert_time), return top K source IPs with highest count of events where severity > 5, along with count and average severity. Sort by count descending, then by avg severity descending.\ndef jko_xsc_sptpqi_qmpralz(conn, k):\n    cursor = conn.cursor()\n    cursor.execute("SELECT source_ip, severity FROM threats WHERE severity > 5")\n    rows = cursor.fetchall()\n    \n    ip_counter = Counter()\n    severity_sum = {}\n    for row in rows:\n        ip, severity = row\n        ip_counter[ip] += 1\n        if ip in severity_sum:\n            severity_sum[ip].append(severity)\n        else:\n            severity_sum[ip] = [severity]\n    \n    ip_severity_avg = {ip: sum(severity_list)/len(severity_list) for ip, severity_list in severity_sum.items()}\n    \n    ip_count_severity = [(ip, count, ip_severity_avg[ip]) for ip, count in ip_counter.items()]\n    ip_count_severity.sort(key=itemgetter(1, 2), reverse=True)\n    \n    return ip_count_severity[:k]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044678, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=460, prompt_tokens=250, total_tokens=710, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+import json
+from collections import Counter
+from operator import itemgetter
+
+# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Generate security recommendations based on analysis. Given a connection to a database with a 'threats' table (columns: reasons TEXT as JSON, is_phishing INT), return top 10 reasons by count where is_phishing=1.
+def cdb_dgmvdghw_jxtalcjrwhxqvnz(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT reasons FROM threats WHERE is_phishing=1")
+    rows = cursor.fetchall()
+    
+    reasons_counter = Counter()
+    for row in rows:
+        reasons = json.loads(row[0])
+        reasons_counter.update(reasons)
+    
+    top_10_reasons = reasons_counter.most_common(10)
+    return top_10_reasons
+
+# The scheme of the table for task is <threats (reasons TEXT, is_phishing INT)>. Given a threats table with columns (source_ip, severity, is_phishing, alert_time), return top K source IPs with highest count of events where severity > 5, along with count and average severity. Sort by count descending, then by avg severity descending.
+def jko_xsc_sptpqi_qmpralz(conn, k):
+    cursor = conn.cursor()
+    cursor.execute("SELECT source_ip, severity FROM threats WHERE severity > 5")
+    rows = cursor.fetchall()
+    
+    ip_counter = Counter()
+    severity_sum = {}
+    for row in rows:
+        ip, severity = row
+        ip_counter[ip] += 1
+        if ip in severity_sum:
+            severity_sum[ip].append(severity)
+        else:
+            severity_sum[ip] = [severity]
+    
+    ip_severity_avg = {ip: sum(severity_list)/len(severity_list) for ip, severity_list in severity_sum.items()}
+    
+    ip_count_severity = [(ip, count, ip_severity_avg[ip]) for ip, count in ip_counter.items()]
+    ip_count_severity.sort(key=itemgetter(1, 2), reverse=True)
+    
+    return ip_count_severity[:k]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Return all rides grouped by source (given connection).
+def ekgs(conn):
+# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Given a source, return the total distance covered by rides from that source (given connection).
+def gslii_lkujnasj(conn, source):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb58wajoyae3aGDCpvPgShG5JUx8', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom typing import List, Tuple\n\n# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Return all rides grouped by source (given connection).\ndef ekgs(conn: sqlite3.Connection) -> List[Tuple[str, float]]:\n    cursor = conn.cursor()\n    cursor.execute("SELECT source, SUM(distance_m) FROM rides GROUP BY source")\n    return cursor.fetchall()\n\n# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Given a source, return the total distance covered by rides from that source (given connection).\ndef gslii_lkujnasj(conn: sqlite3.Connection, source: str) -> float:\n    cursor = conn.cursor()\n    cursor.execute("SELECT SUM(distance_m) FROM rides WHERE source = ?", (source,))\n    result = cursor.fetchone()\n    return result[0] if result else 0\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044690, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=192, prompt_tokens=154, total_tokens=346, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from typing import List, Tuple
+
+# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Return all rides grouped by source (given connection).
+def ekgs(conn: sqlite3.Connection) -> List[Tuple[str, float]]:
+    cursor = conn.cursor()
+    cursor.execute("SELECT source, SUM(distance_m) FROM rides GROUP BY source")
+    return cursor.fetchall()
+
+# The scheme of the table for task is <rides (source TEXT, distance_m REAL)>. Given a source, return the total distance covered by rides from that source (given connection).
+def gslii_lkujnasj(conn: sqlite3.Connection, source: str) -> float:
+    cursor = conn.cursor()
+    cursor.execute("SELECT SUM(distance_m) FROM rides WHERE source = ?", (source,))
+    result = cursor.fetchone()
+    return result[0] if result else 0
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer. 
+def wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer):
+# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer and return a boolean indicating if the count is greater than a given vpdkqzjal. 
+def uizae_wcgpsru_dahkvsqb_nkzyxagfb(conn, rkuu_yms, gezssba_fer, vpdkqzjal):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5Hbq40DR02EtVf3eQqZcAMZsFF', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer. \ndef wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM messages WHERE chat_id = ? AND session_id = ?", (rkuu_yms, gezssba_fer))\n    count = cursor.fetchone()[0]\n    return count\n\n# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer and return a boolean indicating if the count is greater than a given vpdkqzjal. \ndef uizae_wcgpsru_dahkvsqb_nkzyxagfb(conn, rkuu_yms, gezssba_fer, vpdkqzjal):\n    count = wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer)\n    return count > vpdkqzjal\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044699, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=253, prompt_tokens=224, total_tokens=477, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer. 
+def wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM messages WHERE chat_id = ? AND session_id = ?", (rkuu_yms, gezssba_fer))
+    count = cursor.fetchone()[0]
+    return count
+
+# The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer and return a boolean indicating if the count is greater than a given vpdkqzjal. 
+def uizae_wcgpsru_dahkvsqb_nkzyxagfb(conn, rkuu_yms, gezssba_fer, vpdkqzjal):
+    count = wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer)
+    return count > vpdkqzjal
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).
+def fqop(conn, variant):
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant and return True if count is greater than a threshold (given connection).
+def htmqg_gkyuypf_scbgjzgyc(conn, variant, threshold):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5Shk5uSjIykbVCT6eJrBuSrmDm', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).\ndef fqop(conn, variant):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM memory_items WHERE variant=?", (variant,))\n    return cursor.fetchone()[0]\n\n# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant and return True if count is greater than a threshold (given connection).\ndef htmqg_gkyuypf_scbgjzgyc(conn, variant, threshold):\n    count = fqop(conn, variant)\n    return count > threshold\n```\nIn the above Python code, we first define the function `fqop` which takes a database connection and a variant as arguments. It executes a SQL query to count the number of rows in the `memory_items` table where the `variant` column matches the given variant. The function then returns this count.\n\nThe second function `htmqg_gkyuypf_scbgjzgyc` also takes a database connection and a variant as arguments, as well as a threshold. It calls the `fqop` function to get the count of memory items with the given variant, and then returns `True` if this count is greater than the given threshold, and `False` otherwise.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044710, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=296, prompt_tokens=170, total_tokens=466, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).
+def fqop(conn, variant):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM memory_items WHERE variant=?", (variant,))
+    return cursor.fetchone()[0]
+
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant and return True if count is greater than a threshold (given connection).
+def htmqg_gkyuypf_scbgjzgyc(conn, variant, threshold):
+    count = fqop(conn, variant)
+    return count > threshold
+```
+In the above Python code, we first define the function `fqop` which takes a database connection and a variant as arguments. It executes a SQL query to count the number of rows in the `memory_items` table where the `variant` column matches the given variant. The function then returns this count.
+
+The second function `htmqg_gkyuypf_scbgjzgyc` also takes a database connection and a variant as arguments, as well as a threshold. It calls the `fqop` function to get the count of memory items with the given variant, and then returns `True` if this count is greater than the given threshold, and `False` otherwise.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <backtest_results (strategy_id TEXT, window_start TEXT, window_end TEXT, sharpe_ratio REAL, max_drawdown REAL, win_rate REAL, total_trades INTEGER, passed INTEGER, timestamp TEXT)>. Fetches the latest 20 backtest results and returns them in a list of dictionaries (given connection).
+def bpk_lfugg(conn):
+# The scheme of the table for task is <backtest_results (strategy_id TEXT, window_start TEXT, window_end TEXT, sharpe_ratio REAL, max_drawdown REAL, win_rate REAL, total_trades INTEGER, passed INTEGER, timestamp TEXT)>. Fetches the latest 20 backtest results that have passed and returns them in a list of dictionaries (given connection).
+def pku_xjmio_bakqki(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5YCoHcOU3zDvOlgIM1nJ5Kx8jl', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom sqlite3 import Error\n\n# Fetches the latest 20 backtest results and returns them in a list of dictionaries\ndef bpk_lfugg(conn):\n    try:\n        cur = conn.cursor()\n        cur.execute("SELECT * FROM backtest_results ORDER BY timestamp DESC LIMIT 20")\n        rows = cur.fetchall()\n        # Convert to list of dictionaries\n        col_names = [desc[0] for desc in cur.description]\n        result = [dict(zip(col_names, row)) for row in rows]\n        return result\n    except Error as e:\n        print(e)\n\n# Fetches the latest 20 backtest results that have passed and returns them in a list of dictionaries\ndef pku_xjmio_bakqki(conn):\n    try:\n        cur = conn.cursor()\n        cur.execute("SELECT * FROM backtest_results WHERE passed = 1 ORDER BY timestamp DESC LIMIT 20")\n        rows = cur.fetchall()\n        # Convert to list of dictionaries\n        col_names = [desc[0] for desc in cur.description]\n        result = [dict(zip(col_names, row)) for row in rows]\n        return result\n    except Error as e:\n        print(e)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044716, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=252, prompt_tokens=237, total_tokens=489, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from sqlite3 import Error
+
+# Fetches the latest 20 backtest results and returns them in a list of dictionaries
+def bpk_lfugg(conn):
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM backtest_results ORDER BY timestamp DESC LIMIT 20")
+        rows = cur.fetchall()
+        # Convert to list of dictionaries
+        col_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(col_names, row)) for row in rows]
+        return result
+    except Error as e:
+        print(e)
+
+# Fetches the latest 20 backtest results that have passed and returns them in a list of dictionaries
+def pku_xjmio_bakqki(conn):
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM backtest_results WHERE passed = 1 ORDER BY timestamp DESC LIMIT 20")
+        rows = cur.fetchall()
+        # Convert to list of dictionaries
+        col_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(col_names, row)) for row in rows]
+        return result
+    except Error as e:
+        print(e)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date (given connection).
+def jsgxm_crjmlpiyrf(conn, pkwpkjx, ehjp):
+# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date, and return them as a list (given connection).
+def ffbtc_vujpzgsbew_bzii(conn, pkwpkjx, ehjp):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5f98a47ilx8FFuYZP7svlPIafS', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content="```python\nimport sqlite3\n\n# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date (given connection).\ndef jsgxm_crjmlpiyrf(conn, channel, date):\n    cursor = conn.cursor()\n    query = '''SELECT DISTINCT timestamp FROM messages WHERE channel = ? AND created_at = ? ORDER BY timestamp DESC LIMIT 20'''\n    cursor.execute(query, (channel, date))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date, and return them as a list (given connection).\ndef ffbtc_vujpzgsbew_bzii(conn, channel, date):\n    result = jsgxm_crjmlpiyrf(conn, channel, date)\n    return [item[0] for item in result]\n```", refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044723, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=212, prompt_tokens=203, total_tokens=415, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date (given connection).
+def jsgxm_crjmlpiyrf(conn, channel, date):
+    cursor = conn.cursor()
+    query = '''SELECT DISTINCT timestamp FROM messages WHERE channel = ? AND created_at = ? ORDER BY timestamp DESC LIMIT 20'''
+    cursor.execute(query, (channel, date))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date, and return them as a list (given connection).
+def ffbtc_vujpzgsbew_bzii(conn, channel, date):
+    result = jsgxm_crjmlpiyrf(conn, channel, date)
+    return [item[0] for item in result]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <conversations (timestamp TEXT, message_count INTEGER, response_time_avg REAL, token_input INTEGER, token_output INTEGER, agent_name TEXT)>. Function to record conversation statistics (convenience function)
+def wybzna_rzbxbzbcjapm(conn, sbgo, ellhw):
+# The scheme of the table for task is <conversations (timestamp TEXT, message_count INTEGER, response_time_avg REAL, token_input INTEGER, token_output INTEGER, agent_name TEXT)>. Given a date and limit, return the total number of conversations and messages for each agent.
+def ysxqn_gtvtzqygzasr_dfeen(conn, sbgo, ellhw):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5lV7fXcriAPN0BjTFDrRtiZgMX', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom sqlite3 import Error\n\n# Function to record conversation statistics\ndef wybzna_rzbxbzbcjapm(conn, sbgo, ellhw):\n    try:\n        # Create a cursor object\n        cur = conn.cursor()\n        \n        # Execute the insert query\n        cur.execute("INSERT INTO conversations(timestamp, message_count, response_time_avg, token_input, token_output, agent_name) VALUES(?,?,?,?,?,?)", (sbgo, ellhw[\'message_count\'], ellhw[\'response_time_avg\'], ellhw[\'token_input\'], ellhw[\'token_output\'], ellhw[\'agent_name\']))\n        \n        # Commit the transaction\n        conn.commit()\n    except Error as e:\n        print(e)\n\n# Function to get the total number of conversations and messages for each agent\ndef ysxqn_gtvtzqygzasr_dfeen(conn, date, limit):\n    try:\n        # Create a cursor object\n        cur = conn.cursor()\n        \n        # Execute the select query\n        cur.execute("SELECT agent_name, COUNT(*), SUM(message_count) FROM conversations WHERE timestamp LIKE ? GROUP BY agent_name ORDER BY COUNT(*) DESC LIMIT ?", (\'%\'+date+\'%\', limit))\n        \n        # Fetch all rows from the last executed statement\n        rows = cur.fetchall()\n        \n        # Print the rows\n        for row in rows:\n            print(row)\n    except Error as e:\n        print(e)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044729, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=297, prompt_tokens=215, total_tokens=512, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from sqlite3 import Error
+
+# Function to record conversation statistics
+def wybzna_rzbxbzbcjapm(conn, sbgo, ellhw):
+    try:
+        # Create a cursor object
+        cur = conn.cursor()
+        
+        # Execute the insert query
+        cur.execute("INSERT INTO conversations(timestamp, message_count, response_time_avg, token_input, token_output, agent_name) VALUES(?,?,?,?,?,?)", (sbgo, ellhw['message_count'], ellhw['response_time_avg'], ellhw['token_input'], ellhw['token_output'], ellhw['agent_name']))
+        
+        # Commit the transaction
+        conn.commit()
+    except Error as e:
+        print(e)
+
+# Function to get the total number of conversations and messages for each agent
+def ysxqn_gtvtzqygzasr_dfeen(conn, date, limit):
+    try:
+        # Create a cursor object
+        cur = conn.cursor()
+        
+        # Execute the select query
+        cur.execute("SELECT agent_name, COUNT(*), SUM(message_count) FROM conversations WHERE timestamp LIKE ? GROUP BY agent_name ORDER BY COUNT(*) DESC LIMIT ?", ('%'+date+'%', limit))
+        
+        # Fetch all rows from the last executed statement
+        rows = cur.fetchall()
+        
+        # Print the rows
+        for row in rows:
+            print(row)
+    except Error as e:
+        print(e)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <Users (user_id INTEGER, username TEXT, email TEXT, role TEXT)>. Fetch the first 4 users from the Users table and print their details (given connection).
+def bvzva_sucxa(conn):
+# The scheme of the table for task is <Users (user_id INTEGER, username TEXT, email TEXT, role TEXT)>. Fetch the first N users from the Users table and return their details as a list of dictionaries (given connection).
+def bvzva_sucxa(conn, n):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5r9V1DXhQQBZh5OLUCjiGCgcXx', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# Fetch the first 4 users from the Users table and print their details\ndef bvzva_sucxa(conn):\n    cur = conn.cursor()\n    cur.execute("SELECT * FROM Users LIMIT 4")\n    rows = cur.fetchall()\n    for row in rows:\n        print(row)\n\n# Fetch the first N users from the Users table and return their details as a list of dictionaries\ndef bvzva_sucxa(conn, n):\n    cur = conn.cursor()\n    cur.execute("SELECT * FROM Users LIMIT ?", (n,))\n    rows = cur.fetchall()\n    users = []\n    for row in rows:\n        user = {\n            \'user_id\': row[0],\n            \'username\': row[1],\n            \'email\': row[2],\n            \'role\': row[3]\n        }\n        users.append(user)\n    return users\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044735, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=181, prompt_tokens=180, total_tokens=361, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# Fetch the first 4 users from the Users table and print their details
+def bvzva_sucxa(conn):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Users LIMIT 4")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+
+# Fetch the first N users from the Users table and return their details as a list of dictionaries
+def bvzva_sucxa(conn, n):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Users LIMIT ?", (n,))
+    rows = cur.fetchall()
+    users = []
+    for row in rows:
+        user = {
+            'user_id': row[0],
+            'username': row[1],
+            'email': row[2],
+            'role': row[3]
+        }
+        users.append(user)
+    return users
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. Fetches the source system, symbol, direction, strategy, and asset class from the raw_picks table (given connection). Returns list of tuples.
+def njkja_hxr_msetg(conn):
+# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. Fetches the source system, symbol, direction, strategy, and asset class from the raw_picks table and return them as a list of dictionaries (given connection).
+def huanr_xql_penco_nsne(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb5xgoG6G5uo12LE3GIZf0pk4Mnv', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. \n# Fetches the source system, symbol, direction, strategy, and asset class from the raw_picks table (given connection). \n# Returns list of tuples.\ndef njkja_hxr_msetg(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT source_system, symbol, direction, strategy, asset_class FROM raw_picks")\n    rows = cursor.fetchall()\n    return rows\n\n# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. \n# Fetches the source system, symbol, direction, strategy, and asset_class from the raw_picks table and return them as a list of dictionaries (given connection).\ndef huanr_xql_penco_nsne(conn):\n    rows = njkja_hxr_msetg(conn)\n    list_of_dict = []\n    for row in rows:\n        dict_row = {"source_system": row[0], "symbol": row[1], "direction": row[2], "strategy": row[3], "asset_class": row[4]}\n        list_of_dict.append(dict_row)\n    return list_of_dict\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044741, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=281, prompt_tokens=218, total_tokens=499, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. 
+# Fetches the source system, symbol, direction, strategy, and asset class from the raw_picks table (given connection). 
+# Returns list of tuples.
+def njkja_hxr_msetg(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT source_system, symbol, direction, strategy, asset_class FROM raw_picks")
+    rows = cursor.fetchall()
+    return rows
+
+# The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. 
+# Fetches the source system, symbol, direction, strategy, and asset_class from the raw_picks table and return them as a list of dictionaries (given connection).
+def huanr_xql_penco_nsne(conn):
+    rows = njkja_hxr_msetg(conn)
+    list_of_dict = []
+    for row in rows:
+        dict_row = {"source_system": row[0], "symbol": row[1], "direction": row[2], "strategy": row[3], "asset_class": row[4]}
+        list_of_dict.append(dict_row)
+    return list_of_dict
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of 'error' events for a specified day prefix. 
+def juk_szlkn_zkz(conn, sok_fmddhf):
+# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of 'error' and 'warning' events for a specified day prefix. 
+def vir_trwqc_rii_pxupzhbw(conn, sok_fmddhf):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb65lp990FjwLeHMXqICaOgbxYYb', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of \'error\' events for a specified day prefix. \ndef juk_szlkn_zkz(conn, sok_fmddhf):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM events WHERE event=\'error\' AND ts LIKE ?", (sok_fmddhf+\'%\',))\n    result = cursor.fetchone()\n    return result[0] if result else 0\n\n# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of \'error\' and \'warning\' events for a specified day prefix. \ndef vir_trwqc_rii_pxupzhbw(conn, sok_fmddhf):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM events WHERE (event=\'error\' OR event=\'warning\') AND ts LIKE ?", (sok_fmddhf+\'%\',))\n    result = cursor.fetchone()\n    return result[0] if result else 0\n```\nIn the above code, `juk_szlkn_zkz` function takes a database connection and a date prefix as arguments, and returns the count of \'error\' events for the specified date. The `vir_trwqc_rii_pxupzhbw` function also takes a database connection and a date prefix as arguments, but it returns the count of both \'error\' and \'warning\' events for the specified date. The \'%\' symbol is used in the SQL LIKE clause to search for any string of any length.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044749, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=331, prompt_tokens=175, total_tokens=506, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of 'error' events for a specified day prefix. 
+def juk_szlkn_zkz(conn, sok_fmddhf):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM events WHERE event='error' AND ts LIKE ?", (sok_fmddhf+'%',))
+    result = cursor.fetchone()
+    return result[0] if result else 0
+
+# The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of 'error' and 'warning' events for a specified day prefix. 
+def vir_trwqc_rii_pxupzhbw(conn, sok_fmddhf):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM events WHERE (event='error' OR event='warning') AND ts LIKE ?", (sok_fmddhf+'%',))
+    result = cursor.fetchone()
+    return result[0] if result else 0
+```
+In the above code, `juk_szlkn_zkz` function takes a database connection and a date prefix as arguments, and returns the count of 'error' events for the specified date. The `vir_trwqc_rii_pxupzhbw` function also takes a database connection and a date prefix as arguments, but it returns the count of both 'error' and 'warning' events for the specified date. The '%' symbol is used in the SQL LIKE clause to search for any string of any length.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <test1 (id INTEGER)>.This function connects to an in-memory SQLite database using the alias 'uumhals'. It then fetches the names of all tables in the database using a cursor, referred to as 'emrebg'. The function prints each row of table names, formatted as a string with columns separated by ' | '. The column names are stored in 'msllvs_aqyns' and their widths in 'xeieix_nwlzei'. The rows of table names are referred to as 'wveb' and individual rows as 'dam'. The function then closes the connection to the database.
+# The scheme of the table for task is <test1 (id INTEGER)>.This function has the same functionality as the previous one, but with an additional optional parameter 'uvwlas_iowueb'. If 'uvwlas_iowueb' is set to True, the function will return a list of the printed table names, stored in 'dbdqme'. If 'uvwlas_iowueb' is False or not provided, the function will not return anything.
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb6JhN9jZTVIHMhaOO2ukCp0d6rC', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\ndef fetch_table_names(uvwlas_iowueb=False):\n    # Connect to the in-memory SQLite database\n    conn = sqlite3.connect(\':memory:\')\n    conn.execute("CREATE TABLE test1 (id INTEGER)")\n    emrebg = conn.cursor()\n\n    # Fetch the names of all tables in the database\n    emrebg.execute("SELECT name FROM sqlite_master WHERE type=\'table\';")\n    wveb = emrebg.fetchall()\n\n    # Define the column names and their widths\n    msllvs_aqyns = [\'Table Name\']\n    xeieix_nwlzei = [len(name) for name in msllvs_aqyns]\n\n    # Print the column names\n    print(\' | \'.join(name.ljust(width) for name, width in zip(msllvs_aqyns, xeieix_nwlzei)))\n\n    # Print each row of table names\n    dbdqme = []\n    for dam in wveb:\n        print(\' | \'.join(str(cell).ljust(width) for cell, width in zip(dam, xeieix_nwlzei)))\n        dbdqme.append(dam[0])\n\n    # Close the connection to the database\n    conn.close()\n\n    # Return the list of printed table names if uvwlas_iowueb is True\n    if uvwlas_iowueb:\n        return dbdqme\n\n# Call the function\nfetch_table_names(True)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044763, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=308, prompt_tokens=302, total_tokens=610, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+def fetch_table_names(uvwlas_iowueb=False):
+    # Connect to the in-memory SQLite database
+    conn = sqlite3.connect(':memory:')
+    conn.execute("CREATE TABLE test1 (id INTEGER)")
+    emrebg = conn.cursor()
+
+    # Fetch the names of all tables in the database
+    emrebg.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    wveb = emrebg.fetchall()
+
+    # Define the column names and their widths
+    msllvs_aqyns = ['Table Name']
+    xeieix_nwlzei = [len(name) for name in msllvs_aqyns]
+
+    # Print the column names
+    print(' | '.join(name.ljust(width) for name, width in zip(msllvs_aqyns, xeieix_nwlzei)))
+
+    # Print each row of table names
+    dbdqme = []
+    for dam in wveb:
+        print(' | '.join(str(cell).ljust(width) for cell, width in zip(dam, xeieix_nwlzei)))
+        dbdqme.append(dam[0])
+
+    # Close the connection to the database
+    conn.close()
+
+    # Return the list of printed table names if uvwlas_iowueb is True
+    if uvwlas_iowueb:
+        return dbdqme
+
+# Call the function
+fetch_table_names(True)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace. Tolerates VectorDB-client's two-shape return from ``fetch``. (Given connection)
+def bkn_wfhs_npc_coejv_akwvoz(conn):
+# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace and return only those that match with certain keys in the cursors table.
+def rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb6RV8QAEQaFn2cWQIx8yWJ4HuF0', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport psycopg2\nimport json\n\n# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace. Tolerates VectorDB-client\'s two-shape return from ``fetch``. (Given connection)\ndef bkn_wfhs_npc_coejv_akwvoz(conn):\n    try:\n        cursor = conn.cursor()\n        cursor.execute("SELECT * FROM queue")\n        rows = cursor.fetchall()\n        result = []\n        for row in rows:\n            source_id = row[0]\n            cursor.execute(f"SELECT metadata FROM VectorDB WHERE source_id = \'{source_id}\'")\n            metadata = cursor.fetchone()\n            if metadata is not None:\n                metadata = json.loads(metadata[0])\n                if \'doc_id\' in metadata and isinstance(metadata[\'doc_id\'], str) and \':\' in metadata[\'doc_id\']:\n                    result.append((source_id, metadata))\n        return result\n    except (Exception, psycopg2.DatabaseError) as error:\n        print(error)\n    finally:\n        if conn is not None:\n            conn.close()\n\n# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace and return only those that match with certain keys in the cursors table.\ndef rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb(conn):\n    try:\n        cursor = conn.cursor()\n        cursor.execute("SELECT key FROM cursors")\n        keys = cursor.fetchall()\n        keys = [key[0] for key in keys]\n        result = []\n        vector_db_points = bkn_wfhs_npc_coejv_akwvoz(conn)\n        for point in vector_db_points:\n            if point[0] in keys:\n                result.append(point)\n        return result\n    except (Exception, psycopg2.DatabaseError) as error:\n        print(error)\n    finally:\n        if conn is not None:\n            conn.close()\n```\nIn the above code, `bkn_wfhs_npc_coejv_akwvoz` function fetches all the rows from the `queue` table and then for each `source_id` it fetches the corresponding `metadata` from the `VectorDB` table. It checks if the `doc_id` in the `metadata` is in legacy-format (i.e., it is a string and contains \':\'). If it is, then it appends the `source_id` and `metadata` to the result.\n\n`rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb` function fetches all the keys from the `cursors` table and then calls the `bkn_wfhs_npc_coejv_akwvoz` function to get the VectorDB points. It then checks if the `source_id` of the VectorDB point is in the keys fetched from the `cursors` table. If it is, then it appends the VectorDB point to the result.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044771, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=637, prompt_tokens=207, total_tokens=844, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import psycopg2
+import json
+
+# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace. Tolerates VectorDB-client's two-shape return from ``fetch``. (Given connection)
+def bkn_wfhs_npc_coejv_akwvoz(conn):
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM queue")
+        rows = cursor.fetchall()
+        result = []
+        for row in rows:
+            source_id = row[0]
+            cursor.execute(f"SELECT metadata FROM VectorDB WHERE source_id = '{source_id}'")
+            metadata = cursor.fetchone()
+            if metadata is not None:
+                metadata = json.loads(metadata[0])
+                if 'doc_id' in metadata and isinstance(metadata['doc_id'], str) and ':' in metadata['doc_id']:
+                    result.append((source_id, metadata))
+        return result
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+
+# The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace and return only those that match with certain keys in the cursors table.
+def rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb(conn):
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT key FROM cursors")
+        keys = cursor.fetchall()
+        keys = [key[0] for key in keys]
+        result = []
+        vector_db_points = bkn_wfhs_npc_coejv_akwvoz(conn)
+        for point in vector_db_points:
+            if point[0] in keys:
+                result.append(point)
+        return result
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+```
+In the above code, `bkn_wfhs_npc_coejv_akwvoz` function fetches all the rows from the `queue` table and then for each `source_id` it fetches the corresponding `metadata` from the `VectorDB` table. It checks if the `doc_id` in the `metadata` is in legacy-format (i.e., it is a string and contains ':'). If it is, then it appends the `source_id` and `metadata` to the result.
+
+`rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb` function fetches all the keys from the `cursors` table and then calls the `bkn_wfhs_npc_coejv_akwvoz` function to get the VectorDB points. It then checks if the `source_id` of the VectorDB point is in the keys fetched from the `cursors` table. If it is, then it appends the VectorDB point to the result.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists in the Users table (always returns True).
+def zgb_zffzdkot(conn, dwenkmhb):
+# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists and has a specific role; return (exists, role).
+def check_user_role(conn, dwenkmhb, required_role):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb6jOobq8BuTbmHLvukPVnXmt8U1', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists in the Users table (always returns True).\ndef zgb_zffzdkot(conn, dwenkmhb):\n    cursor = conn.cursor()\n    cursor.execute("SELECT dwenkmhb FROM Users WHERE dwenkmhb = ?", (dwenkmhb,))\n    user = cursor.fetchone()\n    return user is not None\n\n# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists and has a specific role; return (exists, role).\ndef check_user_role(conn, dwenkmhb, required_role):\n    cursor = conn.cursor()\n    cursor.execute("SELECT dwenkmhb, role FROM Users WHERE dwenkmhb = ?", (dwenkmhb,))\n    user = cursor.fetchone()\n    if user is None:\n        return False, None\n    else:\n        return True, user[1] == required_role\n```\nIn the above code, `zgb_zffzdkot` function checks if a user exists in the Users table and `check_user_role` function checks if a user exists and has a specific role. Both functions use SQLite3\'s `execute` method to run SQL queries and fetch the result. The `fetchone` method is used to get the first row of the result. If the user does not exist, `fetchone` returns None.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044789, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=317, prompt_tokens=176, total_tokens=493, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists in the Users table (always returns True).
+def zgb_zffzdkot(conn, dwenkmhb):
+    cursor = conn.cursor()
+    cursor.execute("SELECT dwenkmhb FROM Users WHERE dwenkmhb = ?", (dwenkmhb,))
+    user = cursor.fetchone()
+    return user is not None
+
+# The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists and has a specific role; return (exists, role).
+def check_user_role(conn, dwenkmhb, required_role):
+    cursor = conn.cursor()
+    cursor.execute("SELECT dwenkmhb, role FROM Users WHERE dwenkmhb = ?", (dwenkmhb,))
+    user = cursor.fetchone()
+    if user is None:
+        return False, None
+    else:
+        return True, user[1] == required_role
+```
+In the above code, `zgb_zffzdkot` function checks if a user exists in the Users table and `check_user_role` function checks if a user exists and has a specific role. Both functions use SQLite3's `execute` method to run SQL queries and fetch the result. The `fetchone` method is used to get the first row of the result. If the user does not exist, `fetchone` returns None.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <vulnerabilities (id INTEGER PRIMARY KEY, mission_id INTEGER, payload_id INTEGER)>. Returns a list of payload types and their usage count for a given mission
+ def odz_aye(conn, hscwhvi_ucf):
+# The scheme of the table for task is <vulnerabilities (id INTEGER PRIMARY KEY, mission_id INTEGER, payload_id INTEGER)>. Returns the most used payload type for a given mission
+ def zyn_bdas_wvew_dmzqdce(conn, hscwhvi_ucf):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb6zojNgsnhqqyQ9zwBeGz6I1e69', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\ndef odz_aye(conn, hscwhvi_ucf):\n    cursor = conn.cursor()\n    cursor.execute("SELECT payload_id, COUNT(*) FROM vulnerabilities WHERE mission_id = ? GROUP BY payload_id", (hscwhvi_ucf,))\n    return cursor.fetchall()\n\ndef zyn_bdas_wvew_dmzqdce(conn, hscwhvi_ucf):\n    payloads = odz_aye(conn, hscwhvi_ucf)\n    if not payloads:\n        return None\n    most_used_payload = max(payloads, key=lambda x: x[1])\n    return most_used_payload[0]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044805, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=130, prompt_tokens=185, total_tokens=315, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+def odz_aye(conn, hscwhvi_ucf):
+    cursor = conn.cursor()
+    cursor.execute("SELECT payload_id, COUNT(*) FROM vulnerabilities WHERE mission_id = ? GROUP BY payload_id", (hscwhvi_ucf,))
+    return cursor.fetchall()
+
+def zyn_bdas_wvew_dmzqdce(conn, hscwhvi_ucf):
+    payloads = odz_aye(conn, hscwhvi_ucf)
+    if not payloads:
+        return None
+    most_used_payload = max(payloads, key=lambda x: x[1])
+    return most_used_payload[0]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <message_logs (user_id TEXT, timestamp TEXT, topics TEXT)>. Получает логи диалога конкретного пользователя (given connection).
+# Args:
+#     fobr_wwl: ID пользователя
+#     mxduw: Максимальное количество сообщений (по умолчанию 100)
+# Returns:
+#     Список словарей с информацией о сообщениях
+def oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw):
+# The scheme of the table for task is <message_logs (user_id TEXT, timestamp TEXT, topics TEXT)>. Получает логи диалога конкретного пользователя и считает количество сообщений по темам (given connection).
+# Returns:
+#     (список словарей с информацией о сообщениях, словарь с количеством сообщений по темам)
+def zfo_gvna_rsfzmk_hgko_nkt_ckwqn_xzmduw(conn, fobr_wwl, mxduw):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb74rhZkSfzb8w0ufLvbX2icAPyM', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom collections import defaultdict\n\n# Function to get the dialog logs of a specific user\ndef oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw=100):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM message_logs WHERE user_id = ? ORDER BY timestamp DESC LIMIT ?", (fobr_wwl, mxduw))\n    logs = [{\'user_id\': row[0], \'timestamp\': row[1], \'topics\': row[2]} for row in cursor.fetchall()]\n    return logs\n\n# Function to get the dialog logs of a specific user and count the number of messages by topics\ndef zfo_gvna_rsfzmk_hgko_nkt_ckwqn_xzmduw(conn, fobr_wwl, mxduw=100):\n    logs = oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw)\n    topic_counts = defaultdict(int)\n    for log in logs:\n        topics = log[\'topics\'].split(\',\')\n        for topic in topics:\n            topic_counts[topic.strip()] += 1\n    return logs, dict(topic_counts)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044810, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=254, prompt_tokens=321, total_tokens=575, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from collections import defaultdict
+
+# Function to get the dialog logs of a specific user
+def oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw=100):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM message_logs WHERE user_id = ? ORDER BY timestamp DESC LIMIT ?", (fobr_wwl, mxduw))
+    logs = [{'user_id': row[0], 'timestamp': row[1], 'topics': row[2]} for row in cursor.fetchall()]
+    return logs
+
+# Function to get the dialog logs of a specific user and count the number of messages by topics
+def zfo_gvna_rsfzmk_hgko_nkt_ckwqn_xzmduw(conn, fobr_wwl, mxduw=100):
+    logs = oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw)
+    topic_counts = defaultdict(int)
+    for log in logs:
+        topics = log['topics'].split(',')
+        for topic in topics:
+            topic_counts[topic.strip()] += 1
+    return logs, dict(topic_counts)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <tasks (task_id INTEGER PRIMARY KEY, role TEXT, payload_json TEXT, status TEXT, priority INTEGER, attempts INTEGER, result_json TEXT, error_text TEXT, created_at TEXT, updated_at TEXT)>. Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated (given connection).
+def gqyy(conn, oasqx):
+# The scheme of the table for task is <tasks (task_id INTEGER PRIMARY KEY, role TEXT, payload_json TEXT, status TEXT, priority INTEGER, attempts INTEGER, result_json TEXT, error_text TEXT, created_at TEXT, updated_at TEXT)>. Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated. Additionally, it should return the average number of attempts for these tasks (given connection).
+def zpko_upgc_dkv_vwnmcorn(conn, oasqx):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb7BN7Gf5HjyQ2Nub7YlBIGLfCZ8', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\nfrom sqlite3 import Error\nimport json\n\n# Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated\ndef gqyy(conn, oasqx):\n    try:\n        cur = conn.cursor()\n        cur.execute("SELECT * FROM tasks WHERE status=\'failed\' ORDER BY updated_at DESC LIMIT ?", (oasqx,))\n        rows = cur.fetchall()\n        return rows\n    except Error as e:\n        print(e)\n\n# Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated. Additionally, it should return the average number of attempts for these tasks\ndef zpko_upgc_dkv_vwnmcorn(conn, oasqx):\n    rows = gqyy(conn, oasqx)\n    if rows:\n        attempts_sum = sum([row[5] for row in rows])\n        avg_attempts = attempts_sum / len(rows)\n        return rows, avg_attempts\n    else:\n        return [], 0\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044817, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=216, prompt_tokens=262, total_tokens=478, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+from sqlite3 import Error
+import json
+
+# Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated
+def gqyy(conn, oasqx):
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM tasks WHERE status='failed' ORDER BY updated_at DESC LIMIT ?", (oasqx,))
+        rows = cur.fetchall()
+        return rows
+    except Error as e:
+        print(e)
+
+# Fetches the specified number of failed tasks from the tasks table, ordered by the time they were last updated. Additionally, it should return the average number of attempts for these tasks
+def zpko_upgc_dkv_vwnmcorn(conn, oasqx):
+    rows = gqyy(conn, oasqx)
+    if rows:
+        attempts_sum = sum([row[5] for row in rows])
+        avg_attempts = attempts_sum / len(rows)
+        return rows, avg_attempts
+    else:
+        return [], 0
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals from the database and return them as a list of tuples (id, token, mode, is_saved, user_id). Uses the given connection.
+def nutipz_eqelwu(conn):
+# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals for a specific user from the database and return them as a list of dictionaries. Uses the given connection.
+def boi_vvqo_yuavzei(conn, vaiu_esk):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb7HIeRgUEmbdBxjgoAZcZBGkfRV', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals from the database and return them as a list of tuples (id, token, mode, is_saved, user_id). Uses the given connection.\ndef nutipz_eqelwu(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT id, token, mode, is_saved, user_id FROM signals ORDER BY timestamp DESC LIMIT 5")\n    return cursor.fetchall()\n\n# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals for a specific user from the database and return them as a list of dictionaries. Uses the given connection.\ndef boi_vvqo_yuavzei(conn, vaiu_esk):\n    cursor = conn.cursor()\n    cursor.execute("SELECT id, token, mode, is_saved, user_id FROM signals WHERE user_id = ? ORDER BY timestamp DESC LIMIT 5", (vaiu_esk,))\n    rows = cursor.fetchall()\n    return [dict(zip([\'id\', \'token\', \'mode\', \'is_saved\', \'user_id\'], row)) for row in rows]\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044823, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=292, prompt_tokens=236, total_tokens=528, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals from the database and return them as a list of tuples (id, token, mode, is_saved, user_id). Uses the given connection.
+def nutipz_eqelwu(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, token, mode, is_saved, user_id FROM signals ORDER BY timestamp DESC LIMIT 5")
+    return cursor.fetchall()
+
+# The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals for a specific user from the database and return them as a list of dictionaries. Uses the given connection.
+def boi_vvqo_yuavzei(conn, vaiu_esk):
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, token, mode, is_saved, user_id FROM signals WHERE user_id = ? ORDER BY timestamp DESC LIMIT 5", (vaiu_esk,))
+    rows = cursor.fetchall()
+    return [dict(zip(['id', 'token', 'mode', 'is_saved', 'user_id'], row)) for row in rows]
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for personalization.
+def rpw_tfbjll_pomtswh(conn, ieskgwe, zrxdh):
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for a specific role.
+def gcc_vncjjr_dbtktcq_hspt(conn, ieskgwe, zrxdh, bkcy):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb7R8Aws4gneqjXCcgUomXKSa7qp', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for personalization.\ndef rpw_tfbjll_pomtswh(conn, ieskgwe, zrxdh):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM conversations WHERE title = ? AND persona = ? ORDER BY id DESC LIMIT ?", (ieskgwe, zrxdh, 5))\n    return cursor.fetchall()\n\n# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for a specific role.\ndef gcc_vncjjr_dbtktcq_hspt(conn, ieskgwe, zrxdh, bkcy):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM conversations WHERE title = ? AND persona = ? AND role = ? ORDER BY id DESC LIMIT ?", (ieskgwe, zrxdh, bkcy, 5))\n    return cursor.fetchall()\n```\nIn the above code, `rpw_tfbjll_pomtswh` function fetches the recent 5 conversations from the database for a specific title and persona. The `gcc_vncjjr_dbtktcq_hspt` function fetches the recent 5 conversations for a specific title, persona, and role. The `conn` parameter is the connection to the SQLite database, `ieskgwe` is the title of the conversation, `zrxdh` is the persona, and `bkcy` is the role. The `ORDER BY id DESC LIMIT ?` clause in the SQL query ensures that the most recent conversations are fetched.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044833, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=363, prompt_tokens=189, total_tokens=552, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for personalization.
+def rpw_tfbjll_pomtswh(conn, ieskgwe, zrxdh):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM conversations WHERE title = ? AND persona = ? ORDER BY id DESC LIMIT ?", (ieskgwe, zrxdh, 5))
+    return cursor.fetchall()
+
+# The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for a specific role.
+def gcc_vncjjr_dbtktcq_hspt(conn, ieskgwe, zrxdh, bkcy):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM conversations WHERE title = ? AND persona = ? AND role = ? ORDER BY id DESC LIMIT ?", (ieskgwe, zrxdh, bkcy, 5))
+    return cursor.fetchall()
+```
+In the above code, `rpw_tfbjll_pomtswh` function fetches the recent 5 conversations from the database for a specific title and persona. The `gcc_vncjjr_dbtktcq_hspt` function fetches the recent 5 conversations for a specific title, persona, and role. The `conn` parameter is the connection to the SQLite database, `ieskgwe` is the title of the conversation, `zrxdh` is the persona, and `bkcy` is the role. The `ORDER BY id DESC LIMIT ?` clause in the SQL query ensures that the most recent conversations are fetched.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat history for a session using the given connection.
+def get_chat_history(conn, jumcejy_njr):
+# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat summary for a session including total message count and number of escalated messages. Uses the given connection.
+def tga_ndvv_wkbxswq(conn, jumcejy_njr):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb7gWWnYtr1bGZoU3ffGoA2qBTzl', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat history for a session using the given connection.\ndef get_chat_history(conn, session_id):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM chat_messages WHERE session_id=?", (session_id,))\n    chat_history = cursor.fetchall()\n    return chat_history\n\n# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat summary for a session including total message count and number of escalated messages. Uses the given connection.\ndef get_chat_summary(conn, session_id):\n    cursor = conn.cursor()\n    cursor.execute("SELECT COUNT(*) FROM chat_messages WHERE session_id=?", (session_id,))\n    total_message_count = cursor.fetchone()[0]\n    cursor.execute("SELECT COUNT(*) FROM chat_messages WHERE session_id=? AND escalated=1", (session_id,))\n    escalated_message_count = cursor.fetchone()[0]\n    return {"total_message_count": total_message_count, "escalated_message_count": escalated_message_count}\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044848, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=241, prompt_tokens=192, total_tokens=433, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat history for a session using the given connection.
+def get_chat_history(conn, session_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM chat_messages WHERE session_id=?", (session_id,))
+    chat_history = cursor.fetchall()
+    return chat_history
+
+# The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat summary for a session including total message count and number of escalated messages. Uses the given connection.
+def get_chat_summary(conn, session_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM chat_messages WHERE session_id=?", (session_id,))
+    total_message_count = cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM chat_messages WHERE session_id=? AND escalated=1", (session_id,))
+    escalated_message_count = cursor.fetchone()[0]
+    return {"total_message_count": total_message_count, "escalated_message_count": escalated_message_count}
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <messages (id INTEGER PRIMARY KEY, user_id INTEGER, role TEXT, content TEXT, created_at TEXT)>. Full-text search across messages for a user. Returns messages with id, role, content, created_at, and FTS rank.
+def pfp_tavwax(conn, hbbttcqwv, jkdh_njd, srlji):
+# The scheme of the table for task is <messages (id INTEGER PRIMARY KEY, user_id INTEGER, role TEXT, content TEXT, created_at TEXT)>. Full-text search across messages for a user and return only the top 3 messages with the highest FTS rank.
+def hxd_mdgdcs_shiu(conn, hbbttcqwv, jkdh_njd):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb7rpAydiEA9pjdoX5MGFozOjzBy', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\ndef pfp_tavwax(conn, user_id, search_query, limit):\n    """\n    Full-text search across messages for a user. \n    Returns messages with id, role, content, created_at, and FTS rank.\n    """\n    cur = conn.cursor()\n    cur.execute("""\n        SELECT id, role, content, created_at, rank \n        FROM messages \n        WHERE user_id = ? AND content MATCH ? \n        ORDER BY rank DESC \n        LIMIT ?\n        """, (user_id, search_query, limit))\n    return cur.fetchall()\n\ndef hxd_mdgdcs_shiu(conn, user_id, search_query):\n    """\n    Full-text search across messages for a user and return only the top 3 messages with the highest FTS rank.\n    """\n    return pfp_tavwax(conn, user_id, search_query, 3)\n```\nIn the above code, `pfp_tavwax` function performs a full-text search on the messages of a specific user and returns the messages with their id, role, content, created_at, and FTS rank. The results are ordered by the FTS rank in descending order and limited by the provided limit.\n\nThe `hxd_mdgdcs_shiu` function calls the `pfp_tavwax` function and limits the results to the top 3 messages with the highest FTS rank.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044859, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=290, prompt_tokens=230, total_tokens=520, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+def pfp_tavwax(conn, user_id, search_query, limit):
+    """
+    Full-text search across messages for a user. 
+    Returns messages with id, role, content, created_at, and FTS rank.
+    """
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT id, role, content, created_at, rank 
+        FROM messages 
+        WHERE user_id = ? AND content MATCH ? 
+        ORDER BY rank DESC 
+        LIMIT ?
+        """, (user_id, search_query, limit))
+    return cur.fetchall()
+
+def hxd_mdgdcs_shiu(conn, user_id, search_query):
+    """
+    Full-text search across messages for a user and return only the top 3 messages with the highest FTS rank.
+    """
+    return pfp_tavwax(conn, user_id, search_query, 3)
+```
+In the above code, `pfp_tavwax` function performs a full-text search on the messages of a specific user and returns the messages with their id, role, content, created_at, and FTS rank. The results are ordered by the FTS rank in descending order and limited by the provided limit.
+
+The `hxd_mdgdcs_shiu` function calls the `pfp_tavwax` function and limits the results to the top 3 messages with the highest FTS rank.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Check if table 'Process_Time_079_avgday' exists in the database. The function takes a database connection.
+def vegmfu_clydy(conn):
+# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Given a SQLite connection and a list of table names, return a dictionary mapping each table name to a boolean indicating whether it exists in the database.
+def tjbcw_qqxbcu_ktkxi(conn, wiwli_szkiw):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb83aasCR6z09wv9kOY022iQ1c2O', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Check if table \'Process_Time_079_avgday\' exists in the database. The function takes a database connection.\ndef vegmfu_clydy(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT name FROM sqlite_master WHERE type=\'table\' AND name=\'Process_Time_079_avgday\';")\n    result = cursor.fetchone()\n    return result is not None\n\n# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Given a SQLite connection and a list of table names, return a dictionary mapping each table name to a boolean indicating whether it exists in the database.\ndef tjbcw_qqxbcu_ktkxi(conn, wiwli_szkiw):\n    table_existence = {}\n    for table in wiwli_szkiw:\n        cursor = conn.cursor()\n        cursor.execute(f"SELECT name FROM sqlite_master WHERE type=\'table\' AND name=\'{table}\';")\n        result = cursor.fetchone()\n        table_existence[table] = result is not None\n    return table_existence\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044871, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=244, prompt_tokens=191, total_tokens=435, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Check if table 'Process_Time_079_avgday' exists in the database. The function takes a database connection.
+def vegmfu_clydy(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Process_Time_079_avgday';")
+    result = cursor.fetchone()
+    return result is not None
+
+# The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Given a SQLite connection and a list of table names, return a dictionary mapping each table name to a boolean indicating whether it exists in the database.
+def tjbcw_qqxbcu_ktkxi(conn, wiwli_szkiw):
+    table_existence = {}
+    for table in wiwli_szkiw:
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}';")
+        result = cursor.fetchone()
+        table_existence[table] = result is not None
+    return table_existence
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml (given connection). Returns list of done tasks.
+def bydd_cloobni_srk_urct(conn, glsz_ndx):
+# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml and return the number of done tasks (given connection).
+def asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, glsz_ndx):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb8BclfCnSRoZndErFWmppbMt9l1', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport yaml\nimport sqlite3\n\n# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml (given connection). Returns list of done tasks.\ndef bydd_cloobni_srk_urct(conn, glsz_ndx):\n    # Write glsz_ndx to a routine entry in config/routines.yaml\n    with open(\'config/routines.yaml\', \'w\') as file:\n        routines = yaml.dump({\'routine\': glsz_ndx}, file)\n\n    # Query the database\n    cursor = conn.cursor()\n    cursor.execute("SELECT done_tasks FROM goal_progress_v WHERE goal_id = ?", (glsz_ndx,))\n    done_tasks = cursor.fetchall()\n\n    # Return list of done tasks\n    return [task[0] for task in done_tasks]\n\n# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml and return the number of done tasks (given connection).\ndef asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, glsz_ndx):\n    # Call the first function\n    done_tasks = bydd_cloobni_srk_urct(conn, glsz_ndx)\n\n    # Return the number of done tasks\n    return len(done_tasks)\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044879, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=304, prompt_tokens=208, total_tokens=512, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import yaml
+import sqlite3
+
+# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml (given connection). Returns list of done tasks.
+def bydd_cloobni_srk_urct(conn, glsz_ndx):
+    # Write glsz_ndx to a routine entry in config/routines.yaml
+    with open('config/routines.yaml', 'w') as file:
+        routines = yaml.dump({'routine': glsz_ndx}, file)
+
+    # Query the database
+    cursor = conn.cursor()
+    cursor.execute("SELECT done_tasks FROM goal_progress_v WHERE goal_id = ?", (glsz_ndx,))
+    done_tasks = cursor.fetchall()
+
+    # Return list of done tasks
+    return [task[0] for task in done_tasks]
+
+# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml and return the number of done tasks (given connection).
+def asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, glsz_ndx):
+    # Call the first function
+    done_tasks = bydd_cloobni_srk_urct(conn, glsz_ndx)
+
+    # Return the number of done tasks
+    return len(done_tasks)
+```
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <BingWallpaperCore (MajorVer INT, MinorVer INT, Build INT)>. Fetch the version information from BingWallpaperCore and return it as a dictionary. The table BingWallpaperCore already exists and contains at least one row. Uses the given connection.
+def yzqob_gpisdve(conn):
+# The scheme of the table for task is <BingWallpaperCore (MajorVer INT, MinorVer INT, Build INT)>. Fetch the version information from BingWallpaperCore and return it as a dictionary. The table BingWallpaperCore already exists and contains at least one row. Uses the given connection.
+def ckq_sxeqimj_ippt(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb8KYEbxKVAPS7RUgCGHxPKG7t0U', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# Fetch the version information from BingWallpaperCore and return it as a dictionary\ndef yzqob_gpisdve(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM BingWallpaperCore")\n    row = cursor.fetchone()\n    version_info = {"MajorVer": row[0], "MinorVer": row[1], "Build": row[2]}\n    return version_info\n\n# Fetch the version information from BingWallpaperCore and return it as a dictionary\ndef ckq_sxeqimj_ippt(conn):\n    # Call the first function to get the version information\n    version_info = yzqob_gpisdve(conn)\n    return version_info\n```\nIn the above code, `yzqob_gpisdve` function fetches the version information from the `BingWallpaperCore` table and returns it as a dictionary. The `ckq_sxeqimj_ippt` function calls the `yzqob_gpisdve` function to get the version information.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044888, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=217, prompt_tokens=218, total_tokens=435, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# Fetch the version information from BingWallpaperCore and return it as a dictionary
+def yzqob_gpisdve(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM BingWallpaperCore")
+    row = cursor.fetchone()
+    version_info = {"MajorVer": row[0], "MinorVer": row[1], "Build": row[2]}
+    return version_info
+
+# Fetch the version information from BingWallpaperCore and return it as a dictionary
+def ckq_sxeqimj_ippt(conn):
+    # Call the first function to get the version information
+    version_info = yzqob_gpisdve(conn)
+    return version_info
+```
+In the above code, `yzqob_gpisdve` function fetches the version information from the `BingWallpaperCore` table and returns it as a dictionary. The `ckq_sxeqimj_ippt` function calls the `yzqob_gpisdve` function to get the version information.
+PROMPT
+
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).
+def grlwa(conn):
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details and player count from the database (given connection).
+def rkbjf_qeji_njmorf_cbjuc(conn):
+```
+@@ Response
+
+ChatCompletion(id='chatcmpl-Dgb8TIjY0ZZgdgAXmRe3z6PynZXRn', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```python\nimport sqlite3\n\n# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).\ndef grlwa(conn):\n    cursor = conn.cursor()\n    cursor.execute("SELECT * FROM games")\n    return cursor.fetchall()\n\n# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details and player count from the database (given connection).\ndef rkbjf_qeji_njmorf_cbjuc(conn):\n    # Fetch game details\n    games = grlwa(conn)\n    \n    # Assuming there is another table \'players\' with scheme <players (game_id INTEGER, player_id INTEGER)>\n    # Fetch player count for each game\n    cursor = conn.cursor()\n    cursor.execute("SELECT game_id, COUNT(player_id) as player_count FROM players GROUP BY game_id")\n    player_counts = cursor.fetchall()\n    \n    # Combine game details with player count\n    game_details_with_player_count = []\n    for game in games:\n        for player_count in player_counts:\n            if game[0] == player_count[0]:  # if game_id matches\n                game_details_with_player_count.append(game + (player_count[1],))  # append player count to game details\n    \n    return game_details_with_player_count\n```', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1779044897, model='gpt-4-0613', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=290, prompt_tokens=164, total_tokens=454, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+COMPLETION
+
+import sqlite3
+
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).
+def grlwa(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM games")
+    return cursor.fetchall()
+
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details and player count from the database (given connection).
+def rkbjf_qeji_njmorf_cbjuc(conn):
+    # Fetch game details
+    games = grlwa(conn)
+    
+    # Assuming there is another table 'players' with scheme <players (game_id INTEGER, player_id INTEGER)>
+    # Fetch player count for each game
+    cursor = conn.cursor()
+    cursor.execute("SELECT game_id, COUNT(player_id) as player_count FROM players GROUP BY game_id")
+    player_counts = cursor.fetchall()
+    
+    # Combine game details with player count
+    game_details_with_player_count = []
+    for game in games:
+        for player_count in player_counts:
+            if game[0] == player_count[0]:  # if game_id matches
+                game_details_with_player_count.append(game + (player_count[1],))  # append player count to game details
+    
+    return game_details_with_player_count
+```
