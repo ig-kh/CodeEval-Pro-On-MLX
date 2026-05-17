@@ -1,0 +1,49 @@
+# robots.txt for protecting depy_sql.json from crawlers
+User-agent: *
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/
+
+# Explicitly block common AI/LLM crawlers (if they respect robots.txt)
+User-agent: GPTBot
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/
+
+User-agent: Google-Extended
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/
+
+User-agent: CCBot
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/
+
+User-agent: anthropic-ai
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/
+
+User-agent: ClaudeBot
+Disallow: /dataset/
+Disallow: /gt/ 
+Disallow: /gt_eval_results/
+Disallow: /baseline/
+Disallow: /depy_sql_baselines/
+Disallow: /depy_sql_baselines/

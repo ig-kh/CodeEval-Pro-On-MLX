@@ -15,6 +15,18 @@ def get_humaneval_pro_raw_problems() -> list[dict]:
     problems = load_dataset('CodeEval-Pro/humaneval-pro',split='train')
     return list(problems)
 
+def get_depy_sql_raw_problems() -> list[dict]:
+    problems = load_dataset("json", data_files="./dataset/depy_sql.json")
+    return list(problems["train"])
+
+# def get_depy_sql_raw_problems():
+#     import json
+#     from pathlib import Path
+#     path = Path(__file__).parent.parent / "dataset" / "depy_sql.json"  # или полный путь
+#     with open(path, "r") as f:
+#         data = json.load(f)
+#     # data должен быть списком
+#     return data
 
 def map_swebench_problem(p: Dataset) -> Dict[str, Any]:
     id = p["instance_id"]
@@ -154,6 +166,23 @@ def map_humaneval_pro_problem(p: dict) -> Dict[str, Any]:
         id=id, instruction=instruction, response_prefix=response_prefix
     )
 
+def map_depy_sql_problem(p: dict) -> Dict[str, Any]:
+    id = p["id"]
+    prompt1 = p["raw_problem"].strip()
+    prompt2 = p["new_problem"].strip()
+
+    instruction = f"""Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+{prompt1}
+{prompt2}
+```"""
+    response_prefix = f"""```python
+{prompt1}
+"""
+    # response_prefix = ''
+    return dict(
+        id=id, instruction=instruction, response_prefix=response_prefix
+    )
 
 def read_jsonl(path: str | Path):
     with Path(path).open("r") as f:

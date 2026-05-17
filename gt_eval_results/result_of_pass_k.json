@@ -1,0 +1,14 @@
+{
+    "pass_k_of_gt": {
+        "pass@1": 1.0
+    },
+    "results": {
+        "model": "ground_truth",
+        "pass_k_of_output": {
+            "pass@1": 1.0
+        },
+        "pass_k_of_output_sanitized": {
+            "pass@1": 1.0
+        }
+    }
+}

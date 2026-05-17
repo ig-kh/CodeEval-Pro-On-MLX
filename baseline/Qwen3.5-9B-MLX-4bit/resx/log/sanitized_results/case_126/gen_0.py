@@ -1,0 +1,51 @@
+
+def is_sorted(lst):
+    '''
+    Given a list of numbers, return whether or not they are sorted
+    in ascending order. If list has more than 1 duplicate of the same
+    number, return False. Assume no negative numbers and only integers.
+
+    Examples
+    is_sorted([5]) ➞ True
+    is_sorted([1, 2, 3, 4, 5]) ➞ True
+    is_sorted([1, 3, 2, 4, 5]) ➞ False
+    is_sorted([1, 2, 3, 4, 5, 6]) ➞ True
+    is_sorted([1, 2, 3, 4, 5, 6, 7]) ➞ True
+    is_sorted([1, 3, 2, 4, 5, 6, 7]) ➞ False
+    is_sorted([1, 2, 2, 3, 3, 4]) ➞ True
+    is_sorted([1, 2, 2, 2, 3, 4]) ➞ False
+    '''
+    if not lst:
+        return False
+
+    # Check for more than 1 duplicate of the same number
+    from collections import Counter
+    import re
+
+    counts = Counter(lst)
+    for count in counts.values():
+        if count > 1:
+            return False
+
+    # Check if the list is sorted in ascending order
+    for i in range(len(lst) - 1):
+        if lst[i] > lst[i + 1]:
+            return False
+
+    return True
+
+def check_sublists_sorted(lst_of_lsts):
+    """
+    Given a list of lists of numbers, return a list of booleans indicating whether each sublist is sorted in ascending order. If any sublist has more than 1 duplicate of the same number, the corresponding boolean should be False. Assume no negative numbers and only integers.
+    """
+    result = []
+
+    for sublist in lst_of_lsts:
+        # Call the is_sorted function for each sublist
+        is_sublist_sorted = is_sorted(sublist)
+        result.append(is_sublist_sorted)
+
+    return result
+
+
+assert check_sublists_sorted([[5], [1, 2, 3, 4, 5], [1, 3, 2, 4, 5], [1, 2, 2, 3, 3, 4], [1, 2, 2, 2, 3, 4]]) == [True, True, False, True, False]

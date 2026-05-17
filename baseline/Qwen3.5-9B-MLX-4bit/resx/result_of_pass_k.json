@@ -1,0 +1,14 @@
+{
+    "pass_k_of_gt": {
+        "pass@1": 1.0
+    },
+    "results": {
+        "model": "Qwen3.5-9B-MLX-4bit",
+        "pass_k_of_output": {
+            "pass@1": 0.3353658536585366
+        },
+        "pass_k_of_output_sanitized": {
+            "pass@1": 0.3353658536585366
+        }
+    }
+}

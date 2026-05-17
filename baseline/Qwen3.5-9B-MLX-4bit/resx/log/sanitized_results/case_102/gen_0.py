@@ -1,0 +1,27 @@
+
+def choose_num(x, y):
+    """This function takes two positive numbers x and y and returns the
+    biggest even integer number that is in the range [x, y] inclusive. If 
+    there's no such number, then the function should return -1.
+
+    For example:
+    choose_num(12, 15) = 14
+    choose_num(13, 12) = -1
+    """
+    if x > y:
+        return -1
+
+    # Find the biggest even number in range [x, y]
+    if y % 2 == 0:
+        return y
+    else:
+        return y - 1
+
+def sum_of_biggest_evens(ranges):
+    """
+    Given a list of tuples, where each tuple contains two positive integers representing a range [x, y], write a function that returns the sum of the biggest even integers from each range. If any range does not contain an e
+
+assert sum_of_biggest_evens([(12, 15), (13, 12), (10, 14)]) == 28
+assert sum_of_biggest_evens([(1, 3), (5, 7), (9, 11)]) == 18
+assert sum_of_biggest_evens([(2, 4), (6, 8), (10, 12)]) == 24
+assert sum_of_biggest_evens([(1, 1), (2, 2), (3, 3)]) == 2

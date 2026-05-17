@@ -1,4 +1,4 @@
-import torch
+# import torch
 import itertools
 from pathlib import Path
 from dataclasses import dataclass
@@ -38,10 +38,12 @@ from eval.utils import (
     map_mbpp_pro_problem_1shot,
     get_bigcodebench_lite_pro_problems,
     map_bigcodebench_lite_pro_problem,
+    get_depy_sql_raw_problems,
+    map_depy_sql_problem
 )
 
 _T = TypeVar("_T")
-CUDA_NUM = torch.cuda.device_count()
+# CUDA_NUM = torch.cuda.device_count()
 EOS = [
     "<|endoftext|>",
     "<|endofmask|>",
@@ -71,12 +73,13 @@ DATASET_MAPPING = {
         get_bigcodebench_lite_pro_problems,
         map_bigcodebench_lite_pro_problem,
     ),
+    "depy_sql": (get_depy_sql_raw_problems, map_depy_sql_problem),
 }
 
 
 @dataclass(frozen=True)
 class Args:
-    dataset: Literal["humaneval", "mbpp", "humaneval_pro", "mbpp_pro"]
+    dataset: Literal["humaneval", "mbpp", "humaneval_pro", "mbpp_pro", "depy_sql"]
     save_path: str
     n_batches: int
     n_problems_per_batch: int
