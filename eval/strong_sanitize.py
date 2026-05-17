@@ -14,6 +14,7 @@ STD_MODULES = {
     'heapq': ['heapq.', 'heappush', 'heappop', 'heapify'],
     'bisect': ['bisect.', 'bisect_left', 'bisect_right'],
     're': ['re.', 'search', 'match', 'findall', 'sub'],
+    'sqlite3': ['sqlite3.', 'fetchone', 'cursor', 'fetchall', 'execute'],
 }
 
 

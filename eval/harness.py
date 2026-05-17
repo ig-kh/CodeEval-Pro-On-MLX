@@ -125,12 +125,15 @@ def main():
     gt_code = [[d['raw_problem']+ d['raw_solution'] + d['new_problem'] + d['new_solution']] for id, d in enumerate(problems)]
 
     gen_code_file =read_data(Path(args.source_path)/'results.jsonl')
-    sanitized_gen_code_file =read_data(Path(args.source_path)/'sanitized_results.jsonl')     
+    sanitized_gen_code_file =read_data(Path(args.source_path)/'sanitized_results.jsonl')
+    strongly_sanitized_gen_code_file =read_data(Path(args.source_path)/'strongly_sanitized_results.jsonl')     
 
     if 'completion' in  gen_code_file[0].keys():
         if isinstance(gen_code_file[0]['completion'], str):
             gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in gen_code_file]
             sanitized_gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in sanitized_gen_code_file]
+            strongly_sanitized_gen_code_file = [{'task_id': d['task_id'], 'completion':[d['completion']]} for d in strongly_sanitized_gen_code_file]
+
         gen_code = [
                         [problems[id]['raw_problem'] + completion for completion in d['completion']] 
                         for id, d in enumerate(gen_code_file)
@@ -139,11 +142,17 @@ def main():
                         [problems[id]['raw_problem'] + completion for completion in d['completion']] 
                         for id, d in enumerate(sanitized_gen_code_file)
                     ]
+        
+        strongly_sanitized_gen_code = [
+                [problems[id]['raw_problem'] + completion for completion in d['completion']] 
+                for id, d in enumerate(strongly_sanitized_gen_code_file)
+            ]
 
     elif 'solution' in  gen_code_file[0].keys():
         if isinstance(gen_code_file[0]['solution'], str):
             gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in gen_code_file]
             sanitized_gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in sanitized_gen_code_file]
+            strongly_sanitized_gen_code_file = [{'task_id': d['task_id'], 'solution':[d['solution']]} for d in strongly_sanitized_gen_code_file]
         gen_code = [
                         [solution for solution in d['solution']] 
                         for id, d in enumerate(gen_code_file)
@@ -152,6 +161,10 @@ def main():
                         [solution for solution in d['solution']] 
                         for id, d in enumerate(sanitized_gen_code_file)
                     ]
+        strongly_sanitized_gen_code = [
+                [solution for solution in d['solution']] 
+                for id, d in enumerate(strongly_sanitized_gen_code_file)
+            ]
     else:
         raise ValueError("Please check the result.jsonl file.")
     
@@ -174,35 +187,15 @@ def main():
         print(f"Result of Your sanitized Outputs : {sanitized_gen_code_score}")
 
     else:
-        # Run the generated Python files and log the results
-        if args.run_code:
-            if (Path(args.save_path)/'log').exists():
-                raise ValueError('Log file has exisied.')
-            else:
-                _ = run_generated_py_file(reference, gen_code, args.save_path+'/log/results/')
-                _ = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')
-        gt_score = evaluation(reference, gt_code)
-        print(f"Result of Ground Truth : {gt_score}")
+
+        raw_stat = run_generated_py_file(reference, gen_code, args.save_path+'/log/results/')
+        sn_stat = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')
+        ssn_stat = run_generated_py_file(reference, strongly_sanitized_gen_code, args.save_path+'/log/strongly_sanitized_results/')
         
-        gen_code_score = evaluation(reference, gen_code)
-        print(f"Result of Your Outputs : {gen_code_score}")
+        error_stat = {raw_stat}
 
-        sanitized_gen_code_score = evaluation(reference, sanitized_gen_code)
-        print(f"Result of Your sanitized Outputs : {sanitized_gen_code_score}")
-
-
-    # Print the evaluation results
-    result = dict(
-        pass_k_of_gt = gt_score,
-        results = dict(
-            model = args.model_name,
-            pass_k_of_output = gen_code_score,
-            pass_k_of_output_sanitized = sanitized_gen_code_score,
-        )
-    )
-
-    with open(Path(args.save_path)/'result_of_pass_k.json', 'w') as f:
-        json.dump(result, f, indent=4)
+        with open(Path(args.save_path)/'errors.json', 'w') as f:
+            json.dump(error_stat, f, indent=4)
 
     
 if __name__ == '__main__':
