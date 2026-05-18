@@ -21,10 +21,10 @@ python -m strong_sanitize \
     --model_name $MODEL \
     --source_path ${WORK_DIR}/${MODEL}/${TASK_TYPE}/outputs/ \
 
-# python -m harness \
-#     --model_name $MODEL \
-#     --task $TASK_TYPE \
-#     --dataset_path ./dataset/${TASK_TYPE}.json \
-#     --source_path ${WORK_DIR}/${MODEL}/${TASK_TYPE}/outputs/ \
-#     --save_path ${WORK_DIR}/${MODEL}/${TASK_TYPE} \
-#     --run_code
+python -m harness \
+    --model_name $MODEL \
+    --task $TASK_TYPE \
+    --dataset_path ./dataset/${TASK_TYPE}.json \
+    --source_path ${WORK_DIR}/${MODEL}/${TASK_TYPE}/outputs/ \
+    --save_path ${WORK_DIR}/${MODEL}/${TASK_TYPE} \
+    --run_code

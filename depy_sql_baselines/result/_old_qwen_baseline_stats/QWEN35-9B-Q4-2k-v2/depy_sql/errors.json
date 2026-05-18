@@ -1,0 +1,14 @@
+{
+    "raw": {
+        "IndentationError": 39,
+        "SyntaxError": 1
+    },
+    "sanitized": {
+        "IndentationError": 39,
+        "SyntaxError": 1
+    },
+    "strongly_sanitized": {
+        "IndentationError": 38,
+        "SyntaxError": 2
+    }
+}

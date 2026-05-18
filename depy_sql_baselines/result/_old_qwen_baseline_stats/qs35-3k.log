@@ -1,0 +1,72 @@
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).
+def fstx(conn):
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of unique entries in the jts_dpul table (given connection).
+def nolxg_gmpprg(conn):
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).
+def fstx(conn):
+
+COMPLETION
+['   cursor =']
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).
+def fqop(conn, variant):
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant and return True if count is greater than a threshold (given connection).
+def htmqg_gkyuypf_scbgjzgyc(conn, variant, threshold):
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).
+def fqop(conn, variant):
+
+COMPLETION
+['   """Count the number of memory items with a specific variant."""\n    query = f"""\n        SELECT COUNT(*) AS count\n        FROM memory_items\n        WHERE variant = \'{variant}\'\n    """\n    result = conn.execute(query).fetchone()\n    return result[0] if result else 0\n\n# The scheme of the table for']
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <vulnerabilities (id INTEGER PRIMARY KEY, mission_id INTEGER, payload_id INTEGER)>. Returns a list of payload types and their usage count for a given mission
+ def odz_aye(conn, hscwhvi_ucf):
+# The scheme of the table for task is <vulnerabilities (id INTEGER PRIMARY KEY, mission_id INTEGER, payload_id INTEGER)>. Returns the most used payload type for a given mission
+ def zyn_bdas_wvew_dmzqdce(conn, hscwhvi_ucf):
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <vulnerabilities (id INTEGER PRIMARY KEY, mission_id INTEGER, payload_id INTEGER)>. Returns a list of payload types and their usage count for a given mission
+ def odz_aye(conn, hscwhvi_ucf):
+
+COMPLETION
+['   import sqlite3\n    \n    # Connect to the database using the provided connection object\n    cursor = conn.cursor()\n    \n    # SQL query to get payload types and their usage count for a given mission\n    query = """\n    SELECT payload_id, COUNT(*) as usage_count\n    FROM vulnerabilities\n    WHERE mission_id = ?\n    GROUP BY payload_id\n    ORDER BY usage_count DESC\n    """\n    \n    cursor.execute(query, (hscwhvi_ucf,))\n    results = cursor.fetchall()\n    \n    # Convert the fetched rows to a list of dictionaries\n    columns = [\'payload_id\', \'usage_count\']\n    result_dicts = [dict(zip(columns, row)) for row in results]\n    \n    return result_dicts\n\n# The scheme of the']
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).
+def grlwa(conn):
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details and player count from the database (given connection).
+def rkbjf_qeji_njmorf_cbjuc(conn):
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).
+def grlwa(conn):
+
+COMPLETION
+['   """\n    Fetches game details from the database.\n    \n    Args:\n        conn: Database connection object\n    \n    Returns:\n        List of dictionaries representing the game']

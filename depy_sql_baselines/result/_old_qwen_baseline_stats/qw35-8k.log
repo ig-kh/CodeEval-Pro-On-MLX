@@ -1,0 +1,31 @@
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).
+def dcgg(conn, division_id, canonical_name):
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id, name and a new field 'division_canonical' which is a concatenation of division_id and canonical_name, ordered by team_id (given connection).
+def wncg_lylrklow(conn, division_id, canonical_name):
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).
+def dcgg(conn, division_id, canonical_name):
+
+COMPLETION
+['   cursor = conn.cursor()\n    query = f"SELECT team_id, name FROM team WHERE division_id = {division_id} AND canonical_name = \'{canonical_name}\' ORDER BY team_id"\n   ']
+PROMPT
+You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.
+@@ Instruction
+Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first solution.
+```python
+# The scheme of the table for task is <NotificationHandler (RecordId INTEGER, OrderCol INTEGER, Payload TEXT)>. Fetches records from NotificationHandler and returns a list of dictionaries with 'order' and 'payload' fields. The function is named wnwx().
+# The scheme of the table for task is <NotificationHandler (RecordId INTEGER, OrderCol INTEGER, Payload TEXT)>. Fetches records from NotificationHandler and returns a list of dictionaries with 'order', 'payload' and 'recordId' fields. Also, it should return the max_order. The function is named qakek_jauombk().
+```
+
+@@ Response
+```python
+# The scheme of the table for task is <NotificationHandler (RecordId INTEGER, OrderCol INTEGER, Payload TEXT)>. Fetches records from NotificationHandler and returns a list of dictionaries with 'order' and 'payload' fields. The function is named wnwx().
+

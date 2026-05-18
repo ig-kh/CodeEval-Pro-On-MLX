@@ -1,0 +1,31 @@
+{
+    "raw": {
+        "AssertionError": 10,
+        "TypeError": 2,
+        "ModuleNotFoundError": 2,
+        "NameError": 8,
+        "sqlite3.OperationalError": 2,
+        "IndentationError": 4,
+        "SyntaxError": 11,
+        "Passed": 1
+    },
+    "sanitized": {
+        "AssertionError": 10,
+        "TypeError": 2,
+        "ModuleNotFoundError": 2,
+        "NameError": 8,
+        "sqlite3.OperationalError": 2,
+        "IndentationError": 4,
+        "SyntaxError": 11,
+        "Passed": 1
+    },
+    "strongly_sanitized": {
+        "IndentationError": 23,
+        "ModuleNotFoundError": 2,
+        "sqlite3.OperationalError": 2,
+        "SyntaxError": 6,
+        "NameError": 3,
+        "AssertionError": 3,
+        "TypeError": 1
+    }
+}

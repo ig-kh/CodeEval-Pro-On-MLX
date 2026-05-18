@@ -2,6 +2,7 @@
 import itertools
 from pathlib import Path
 from dataclasses import dataclass
+import re
 
 from mlx_lm import load, generate
 from mlx_lm.sample_utils import (
@@ -76,7 +77,6 @@ DATASET_MAPPING = {
     "depy_sql": (get_depy_sql_raw_problems, map_depy_sql_problem),
 }
 
-
 @dataclass(frozen=True)
 class Args:
     dataset: Literal["humaneval", "mbpp", "humaneval_pro", "mbpp_pro", "depy_sql"]
@@ -90,6 +90,7 @@ class Args:
     do_sample: bool
     model_name_or_path: str | None = None
     use_flash_attention: bool = False
+    additional_prompt : str = ''
     # MLX-specific
     use_mlx: bool = False
     repetition_penalty: float = 1.0
@@ -238,7 +239,7 @@ def main():
         task_ids = [problem["id"] for problem in batch_problems]
         prompts = [
             PROMPT_WRAPPER.format(
-                instruction=problem["instruction"],
+                instruction=args.additional_prompt+problem["instruction"],
                 response=problem.get("response_prefix", ""),
             )
             for problem in batch_problems

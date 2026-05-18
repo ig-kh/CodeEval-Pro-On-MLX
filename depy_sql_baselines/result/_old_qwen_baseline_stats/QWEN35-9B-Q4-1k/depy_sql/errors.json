@@ -1,0 +1,26 @@
+{
+    "raw": {
+        "AssertionError": 16,
+        "NameError": 8,
+        "IndentationError": 2,
+        "SyntaxError": 12,
+        "TypeError": 1,
+        "sqlite3.OperationalError": 1
+    },
+    "sanitized": {
+        "AssertionError": 16,
+        "NameError": 8,
+        "IndentationError": 2,
+        "SyntaxError": 12,
+        "TypeError": 1,
+        "sqlite3.OperationalError": 1
+    },
+    "strongly_sanitized": {
+        "IndentationError": 25,
+        "sqlite3.OperationalError": 2,
+        "SyntaxError": 5,
+        "NameError": 5,
+        "AssertionError": 2,
+        "TypeError": 1
+    }
+}

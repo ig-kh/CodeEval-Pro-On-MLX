@@ -176,9 +176,7 @@ def map_depy_sql_problem(p: dict) -> Dict[str, Any]:
 {prompt1}
 {prompt2}
 ```"""
-    response_prefix = f"""```python
-{prompt1}
-"""
+    response_prefix = f"```python\n\n{prompt1}\n"
     # response_prefix = ''
     return dict(
         id=id, instruction=instruction, response_prefix=response_prefix

@@ -1,0 +1,35 @@
+# The scheme of the table for task is <goal_progress_v (goal_id INTEGER, done_tasks INTEGER)>. Write glsz_ndx to a routine entry in config/routines.yaml (given connection). Returns list of done tasks.
+def bydd_cloobni_srk_urct(conn, glsz_ndx):    import sqlite3
+    import yaml
+    import os
+    import json
+
+    # Ensure the config directory exists
+    os.makedirs("config", exist_ok=True)
+
+    # Write the routine entry to config/routines.yaml
+    routine_entry = {
+    "routine_id": glsz_ndx,
+    "description": f"Routine {glsz_ndx}",
+    
+import sqlite3
+
+def test_both():
+    conn = sqlite3.connect(':memory:')
+    cursor = conn.cursor()
+    cursor.execute('CREATE TABLE goal_progress_v (goal_id INTEGER, done_tasks INTEGER)')
+    cursor.executemany('INSERT INTO goal_progress_v VALUES (?, ?)', [(1, 5), (1, 6), (2, 3)])
+    conn.commit()
+    
+    raw_result = bydd_cloobni_srk_urct(conn, 1)
+    assert raw_result == [(5,), (6,)]
+    
+    new_result = asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, 1)
+    assert new_result == 2
+    
+    assert asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, 2) == 1
+    
+    conn.close()
+    print('All tests passed')
+
+test_both()

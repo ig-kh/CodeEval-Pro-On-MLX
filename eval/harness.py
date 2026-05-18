@@ -188,11 +188,13 @@ def main():
 
     else:
 
-        raw_stat = run_generated_py_file(reference, gen_code, args.save_path+'/log/results/')
-        sn_stat = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')
-        ssn_stat = run_generated_py_file(reference, strongly_sanitized_gen_code, args.save_path+'/log/strongly_sanitized_results/')
+        raw_stat = run_generated_py_file(reference, gen_code, args.save_path+'/log/results/')["error_stats"]
+        sn_stat = run_generated_py_file(reference, sanitized_gen_code, args.save_path+'/log/sanitized_results/')["error_stats"]
+        ssn_stat = run_generated_py_file(reference, strongly_sanitized_gen_code, args.save_path+'/log/strongly_sanitized_results/')["error_stats"]
         
-        error_stat = {raw_stat}
+        error_stat = {"raw": raw_stat,
+                      "sanitized": sn_stat,
+                      "strongly_sanitized": ssn_stat}
 
         with open(Path(args.save_path)/'errors.json', 'w') as f:
             json.dump(error_stat, f, indent=4)
