@@ -1,11 +1,13 @@
 {
     "error_stats": {
-        "AssertionError": 14,
-        "Passed": 11,
-        "IndentationError": 8,
+        "AssertionError": 18,
+        "Passed": 12,
         "TypeError": 5,
+        "sqlite3.InterfaceError": 1,
         "KeyError": 1,
-        "NameError": 1
+        "NameError": 1,
+        "IndentationError": 1,
+        "sqlite3.OperationalError": 1
     },
     "analysis": [
         [
@@ -45,7 +47,7 @@
                 "problem_id": 4,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "AssertionError"
             }
         ],
         [
@@ -117,7 +119,7 @@
                 "problem_id": 13,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "sqlite3.InterfaceError"
             }
         ],
         [
@@ -125,7 +127,7 @@
                 "problem_id": 14,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "AssertionError"
             }
         ],
         [
@@ -245,7 +247,7 @@
                 "problem_id": 29,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "AssertionError"
             }
         ],
         [
@@ -253,7 +255,7 @@
                 "problem_id": 30,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "AssertionError"
             }
         ],
         [
@@ -293,7 +295,7 @@
                 "problem_id": 35,
                 "solution_id": 0,
                 "status": "Failed",
-                "error_type": "IndentationError"
+                "error_type": "sqlite3.OperationalError"
             }
         ],
         [
@@ -324,8 +326,8 @@
             {
                 "problem_id": 39,
                 "solution_id": 0,
-                "status": "Failed",
-                "error_type": "IndentationError"
+                "status": "Passed",
+                "error_type": "Passed"
             }
         ]
     ]

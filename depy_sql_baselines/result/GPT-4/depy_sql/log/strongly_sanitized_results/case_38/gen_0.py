@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # Fetch the version information from BingWallpaperCore and return it as a dictionary
@@ -14,7 +13,6 @@ def ckq_sxeqimj_ippt(conn):
     # Call the first function to get the version information
     version_info = yzqob_gpisdve(conn)
     return version_info
-
 import sqlite3
 
 def test_both_functions():

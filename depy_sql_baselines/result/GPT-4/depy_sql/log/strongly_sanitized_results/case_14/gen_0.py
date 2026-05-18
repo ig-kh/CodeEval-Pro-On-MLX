@@ -1,8 +1,7 @@
+import math
 
 import sqlite3
 from sqlite3 import Error
-    import math
-
 
 # The scheme of the table for task is <teardown_approvals (teardown_id INTEGER, level TEXT, strategy_id TEXT, request_json TEXT, created_at TEXT, expires_at TEXT, response_json TEXT)>. Write an approval response by strategy_id (convenience for API callers).
 def cpopy_ojpffiqj_qylodwyu_kpq_lxnywfxh(conn, kppmfhih_srf, riq_hma):
@@ -33,7 +32,6 @@ def rbssc_oglcevdo_pcuoitnm_lpo_oxsktihm_kir_teqzn(conn, kppmfhih_srf, kezel, ri
     except Error as e:
         print(e)
         return False
-
 import sqlite3
 
 def test_both():

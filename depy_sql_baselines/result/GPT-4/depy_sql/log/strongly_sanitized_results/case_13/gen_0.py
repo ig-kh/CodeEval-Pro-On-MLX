@@ -1,5 +1,4 @@
-    import sqlite3
-
+import sqlite3
 
 def wnp_joncwa_zeodzwfmi_krlc_ufv_sho(conn):
     cursor = conn.cursor()
@@ -19,7 +18,6 @@ def wnp_joncwa_zeodzwfmi_krlc_ufv_sho(conn):
     conn.commit()
     return deleted_ids
 
-
 def nww_gldywt_zysjloqmb_zwku_hyebea_kit_rhm(conn):
     cursor = conn.cursor()
     cursor.execute("""
@@ -37,7 +35,6 @@ def nww_gldywt_zysjloqmb_zwku_hyebea_kit_rhm(conn):
 
     conn.commit()
     return deleted_ids
-
 import sqlite3
 
 def test_both():

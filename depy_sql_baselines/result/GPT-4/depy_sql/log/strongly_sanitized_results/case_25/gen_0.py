@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <events (event TEXT, ts TEXT)>. Count the number of 'error' events for a specified day prefix. 
@@ -14,7 +13,6 @@ def vir_trwqc_rii_pxupzhbw(conn, sok_fmddhf):
     cursor.execute("SELECT COUNT(*) FROM events WHERE (event='error' OR event='warning') AND ts LIKE ?", (sok_fmddhf+'%',))
     result = cursor.fetchone()
     return result[0] if result else 0
-
 import sqlite3
 
 def test_both():

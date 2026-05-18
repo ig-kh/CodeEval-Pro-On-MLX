@@ -20,11 +20,13 @@
         "sqlite3.OperationalError": 1
     },
     "strongly_sanitized": {
-        "AssertionError": 14,
-        "Passed": 11,
-        "IndentationError": 8,
+        "AssertionError": 18,
+        "Passed": 12,
         "TypeError": 5,
+        "sqlite3.InterfaceError": 1,
         "KeyError": 1,
-        "NameError": 1
+        "NameError": 1,
+        "IndentationError": 1,
+        "sqlite3.OperationalError": 1
     }
 }

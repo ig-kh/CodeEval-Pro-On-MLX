@@ -1,4 +1,3 @@
-
 import sqlite3
 from sqlite3 import Error
 import json
@@ -22,7 +21,6 @@ def zpko_upgc_dkv_vwnmcorn(conn, oasqx):
         return rows, avg_attempts
     else:
         return [], 0
-
 import sqlite3
 
 def test_both():

@@ -1,7 +1,6 @@
+import re
 
 import sqlite3
-    import re
-
 
 def pfp_tavwax(conn, user_id, search_query, limit):
     """
@@ -23,7 +22,6 @@ def hxd_mdgdcs_shiu(conn, user_id, search_query):
     Full-text search across messages for a user and return only the top 3 messages with the highest FTS rank.
     """
     return pfp_tavwax(conn, user_id, search_query, 3)
-
 import sqlite3
 
 def test_both():

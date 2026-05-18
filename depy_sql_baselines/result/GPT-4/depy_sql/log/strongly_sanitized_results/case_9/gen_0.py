@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <jts_dpul (id INTEGER)>. Count the number of rows in the jts_dpul table (given connection).
@@ -14,7 +13,6 @@ def nolxg_gmpprg(conn):
     cursor.execute("SELECT COUNT(DISTINCT id) FROM jts_dpul")
     unique_rows = cursor.fetchone()
     return unique_rows[0]
-
 import sqlite3
 
 def test_both():

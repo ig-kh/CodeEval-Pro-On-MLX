@@ -1,8 +1,7 @@
+import math
 
 import sqlite3
 from collections import defaultdict
-    import math
-
 
 # Function to get the dialog logs of a specific user
 def oty_xtii_uiugqb_dajd(conn, fobr_wwl, mxduw=100):
@@ -20,7 +19,6 @@ def zfo_gvna_rsfzmk_hgko_nkt_ckwqn_xzmduw(conn, fobr_wwl, mxduw=100):
         for topic in topics:
             topic_counts[topic.strip()] += 1
     return logs, dict(topic_counts)
-
 import sqlite3
 import json
 

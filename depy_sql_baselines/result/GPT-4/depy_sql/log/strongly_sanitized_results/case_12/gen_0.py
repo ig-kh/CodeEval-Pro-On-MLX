@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # Fetch all table names from the database (given connection) and print them.
@@ -15,8 +14,6 @@ def mnf_slmts_ueeyp(conn):
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
     tables = cursor.fetchall()
     return [table[0] for table in tables]
-
-
 import sqlite3
 
 def test_both():

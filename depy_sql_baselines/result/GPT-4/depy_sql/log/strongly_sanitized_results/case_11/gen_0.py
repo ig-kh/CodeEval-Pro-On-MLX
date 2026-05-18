@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # Fetches the most recent N user messages from the conversations table (given connection).
@@ -14,7 +13,6 @@ def xisgzr_ynqmixjjcsapg(conn, n):
     query = "SELECT user_message, agent_message FROM conversations ORDER BY id DESC LIMIT ?"
     cursor.execute(query, (n,))
     return cursor.fetchall()
-
 import sqlite3
 
 def test_both():

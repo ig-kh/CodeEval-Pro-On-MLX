@@ -1,4 +1,3 @@
-
 import sqlite3
 from typing import List, Tuple
 
@@ -14,7 +13,6 @@ def gslii_lkujnasj(conn: sqlite3.Connection, source: str) -> float:
     cursor.execute("SELECT SUM(distance_m) FROM rides WHERE source = ?", (source,))
     result = cursor.fetchone()
     return result[0] if result else 0
-
 import sqlite3
 
 def test_both():

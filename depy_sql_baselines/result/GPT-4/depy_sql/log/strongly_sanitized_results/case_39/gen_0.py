@@ -1,7 +1,6 @@
+import re
 
 import sqlite3
-    import re
-
 
 # The scheme of the table for task is <games (rowid INTEGER PRIMARY KEY, start TEXT, saved TEXT)>. Fetches game details from the database (given connection).
 def grlwa(conn):
@@ -28,7 +27,6 @@ def rkbjf_qeji_njmorf_cbjuc(conn):
                 game_details_with_player_count.append(game + (player_count[1],))  # append player count to game details
 
     return game_details_with_player_count
-
 import sqlite3
 
 def test_both():

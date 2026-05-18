@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <messages (timestamp TEXT, channel TEXT, created_at TEXT)>. Fetch the timestamps of the last 20 distinct messages from a specific channel and date (given connection).
@@ -12,7 +11,6 @@ def jsgxm_crjmlpiyrf(conn, channel, date):
 def ffbtc_vujpzgsbew_bzii(conn, channel, date):
     result = jsgxm_crjmlpiyrf(conn, channel, date)
     return [item[0] for item in result]
-
 import sqlite3
 
 def test_both():

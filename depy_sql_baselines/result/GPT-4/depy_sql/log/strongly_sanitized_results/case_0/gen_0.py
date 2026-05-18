@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # Fetch the first query from a conversation based on the conversation id
@@ -16,7 +15,6 @@ def geu_fava_mganc(conn, conversation_id):
     cursor.execute(query, (conversation_id,))
     result = cursor.fetchone()
     return result[0] if result else None
-
 import sqlite3
 
 def test_both():

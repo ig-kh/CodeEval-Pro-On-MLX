@@ -1,8 +1,7 @@
+import math
 
 import sqlite3
 from datetime import datetime, timedelta
-    import math
-
 
 # The scheme of the table for task is <api_usage (created_at TEXT, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER)>. 
 # Return the sum of cost, input tokens, output tokens and count of entries per day for the last 7 days from the 'api_usage' table or None on any failure.
@@ -37,7 +36,6 @@ def ivijn_vgti_vnx_xfkobd(conn):
         return total_cost, total_input_tokens, total_output_tokens
     else:
         return None
-
 import sqlite3
 
 def test_both():

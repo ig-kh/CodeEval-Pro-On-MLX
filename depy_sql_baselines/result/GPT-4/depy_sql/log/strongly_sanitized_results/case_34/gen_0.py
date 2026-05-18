@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <chat_messages (session_id TEXT, sender TEXT, message TEXT, timestamp TEXT, escalated INTEGER)>. Get chat history for a session using the given connection.
@@ -16,7 +15,6 @@ def get_chat_summary(conn, session_id):
     cursor.execute("SELECT COUNT(*) FROM chat_messages WHERE session_id=? AND escalated=1", (session_id,))
     escalated_message_count = cursor.fetchone()[0]
     return {"total_message_count": total_message_count, "escalated_message_count": escalated_message_count}
-
 import sqlite3
 
 def test_both():

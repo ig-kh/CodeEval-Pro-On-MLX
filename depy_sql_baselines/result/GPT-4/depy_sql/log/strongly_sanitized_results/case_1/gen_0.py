@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <posture_datapoints (metric_name TEXT, metric_category TEXT, org_id INTEGER)>. 
@@ -14,7 +13,6 @@ def xaq_ypfgla_mpdeoc_sfkfuxbdbv(conn, org_id):
     cursor = conn.cursor()
     cursor.execute("SELECT COUNT(DISTINCT metric_category) FROM posture_datapoints WHERE org_id = ?", (org_id,))
     return cursor.fetchone()[0]
-
 import sqlite3
 
 def test_both():

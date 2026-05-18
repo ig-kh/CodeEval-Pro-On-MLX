@@ -1,9 +1,8 @@
+import re
+    import sqlite3
 
 import psycopg2
 import json
-    import re
-    import sqlite3
-
 
 # The scheme of the table for task is <queue (source_id text)>. Iterate VectorDB points whose metadata.doc_id has a legacy-format namespace. Tolerates VectorDB-client's two-shape return from ``fetch``. (Given connection)
 def bkn_wfhs_npc_coejv_akwvoz(conn):
@@ -45,7 +44,6 @@ def rff_gkgh_guz_difdq_qtipwq_cvr_upkkt_vozjfvb(conn):
     finally:
         if conn is not None:
             conn.close()
-
 import sqlite3
 
 def test_both():

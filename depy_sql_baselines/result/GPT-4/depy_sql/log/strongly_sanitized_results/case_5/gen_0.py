@@ -1,4 +1,3 @@
-
 import sqlite3
 from sqlite3 import Error
 
@@ -33,8 +32,6 @@ def main():
         print(vrifl(conn))
         print("2. Query task by priority and status:")
         print(pzypl_fgkt_dvucbp(conn))
-
-
 import sqlite3
 
 def test_both():

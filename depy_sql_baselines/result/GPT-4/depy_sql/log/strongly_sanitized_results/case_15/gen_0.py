@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <part (message_id INTEGER, data TEXT, session_id INTEGER, time_created TIMESTAMP)>. 
@@ -14,7 +13,6 @@ def ugotz_fpwjjcp(conn, lzltymc_qse):
 def deinl_tdyiyro_rvxizuh_gcj(conn, lzltymc_qse):
     tuples = ugotz_fpwjjcp(conn, lzltymc_qse)
     return [t[0] for t in tuples]
-
 import sqlite3
 
 def test_both():

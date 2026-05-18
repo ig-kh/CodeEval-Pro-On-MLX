@@ -1,4 +1,3 @@
-
 import sqlite3
 from datetime import datetime, timedelta
 
@@ -25,7 +24,6 @@ def tzwl(conn, gkwju_mdhx, lky_tonu):
 # Function to create growing degree day rasters for each day between gkwju_mdhx and lky_tonu, inclusive and return the total count of temperature observations.
 def ndck_zvnr_fzqpg(conn, gkwju_mdhx, lky_tonu):
     return tzwl(conn, gkwju_mdhx, lky_tonu)
-
 import sqlite3
 
 def test_both():

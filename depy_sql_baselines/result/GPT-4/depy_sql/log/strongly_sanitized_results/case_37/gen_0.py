@@ -1,4 +1,3 @@
-
 import yaml
 import sqlite3
 
@@ -23,7 +22,6 @@ def asvy_gjnhpdk_ikz_hzxf_ads_moapv_eaob(conn, glsz_ndx):
 
     # Return the number of done tasks
     return len(done_tasks)
-
 import sqlite3
 
 def test_both():

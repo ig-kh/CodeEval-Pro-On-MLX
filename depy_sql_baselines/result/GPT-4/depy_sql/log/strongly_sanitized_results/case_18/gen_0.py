@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <messages (chat_id INTEGER, session_id INTEGER)>. Count how many messages exist for the current gezssba_fer. 
@@ -12,7 +11,6 @@ def wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer):
 def uizae_wcgpsru_dahkvsqb_nkzyxagfb(conn, rkuu_yms, gezssba_fer, vpdkqzjal):
     count = wgbei_xincdtt_khwpjvgi(conn, rkuu_yms, gezssba_fer)
     return count > vpdkqzjal
-
 import sqlite3
 
 def test_both():

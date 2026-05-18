@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <Process_Time_079_avgday (id INT)>. Check if table 'Process_Time_079_avgday' exists in the database. The function takes a database connection.
@@ -17,7 +16,6 @@ def tjbcw_qqxbcu_ktkxi(conn, wiwli_szkiw):
         result = cursor.fetchone()
         table_existence[table] = result is not None
     return table_existence
-
 import sqlite3
 
 def test_both():

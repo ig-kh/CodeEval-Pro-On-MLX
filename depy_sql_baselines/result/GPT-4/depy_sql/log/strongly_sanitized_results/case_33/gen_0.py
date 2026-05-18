@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <conversations (id INTEGER PRIMARY KEY, title TEXT, persona TEXT)>. Get memory context from recent conversations for personalization.
@@ -12,7 +11,6 @@ def gcc_vncjjr_dbtktcq_hspt(conn, ieskgwe, zrxdh, bkcy):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM conversations WHERE title = ? AND persona = ? AND role = ? ORDER BY id DESC LIMIT ?", (ieskgwe, zrxdh, bkcy, 5))
     return cursor.fetchall()
-
 import sqlite3
 
 def test_both():

@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <daily_sentiment (date TEXT, sentiment REAL)>. Retrieve daily sentiment for given date range (dates as strings YYYY-MM-DD).
@@ -21,7 +20,6 @@ def gns_veoilpxxa_uomfjq_dnfobao(conn, start_date, end_date, window_size):
             """
     cursor.execute(query, (window_size, start_date, end_date))
     return cursor.fetchall()
-
 import sqlite3
 
 def test_both():

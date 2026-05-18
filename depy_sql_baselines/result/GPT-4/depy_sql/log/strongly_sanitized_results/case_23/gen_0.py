@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # Fetch the first 4 users from the Users table and print their details
@@ -24,7 +23,6 @@ def bvzva_sucxa(conn, n):
         }
         users.append(user)
     return users
-
 import sqlite3
 
 def test_both():

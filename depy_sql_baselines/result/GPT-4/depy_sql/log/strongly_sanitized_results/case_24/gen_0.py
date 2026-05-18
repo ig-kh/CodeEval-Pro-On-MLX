@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <raw_picks (source_system TEXT, symbol TEXT, direction TEXT, strategy TEXT, asset_class TEXT)>. 
@@ -19,7 +18,6 @@ def huanr_xql_penco_nsne(conn):
         dict_row = {"source_system": row[0], "symbol": row[1], "direction": row[2], "strategy": row[3], "asset_class": row[4]}
         list_of_dict.append(dict_row)
     return list_of_dict
-
 import sqlite3
 
 def test_both():

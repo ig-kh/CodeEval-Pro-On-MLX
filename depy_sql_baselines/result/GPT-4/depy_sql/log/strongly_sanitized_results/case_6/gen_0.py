@@ -1,5 +1,3 @@
-
-# Importing necessary module
 import sqlite3
 
 # The scheme of the table for task is <test (id INTEGER)>. Return a list of all table names except 'migration_version' (given connection).
@@ -15,7 +13,6 @@ def jgvj(conn):
 def fmppm_uxvfhp(conn, table_name):
     tables = jgvj(conn)
     return table_name in tables
-
 import sqlite3
 
 def test_both():

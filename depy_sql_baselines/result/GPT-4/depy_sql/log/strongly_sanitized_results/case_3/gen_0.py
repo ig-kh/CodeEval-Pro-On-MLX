@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <team (team_id INTEGER, name TEXT, division_id INTEGER, canonical_name TEXT)>. Fetch team_id and name from team table for a given division_id and canonical_name, ordered by team_id (given connection).
@@ -17,7 +16,6 @@ def wncg_lylrklow(conn, division_id, canonical_name):
         division_canonical = str(division_id) + canonical_name
         result.append((team_id, name, division_canonical))
     return result
-
 import sqlite3
 
 def test_both():

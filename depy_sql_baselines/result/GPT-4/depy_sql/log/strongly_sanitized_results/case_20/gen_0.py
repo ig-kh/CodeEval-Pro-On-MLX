@@ -1,4 +1,3 @@
-
 import sqlite3
 from sqlite3 import Error
 
@@ -27,7 +26,6 @@ def pku_xjmio_bakqki(conn):
         return result
     except Error as e:
         print(e)
-
 import sqlite3
 
 def test_both():

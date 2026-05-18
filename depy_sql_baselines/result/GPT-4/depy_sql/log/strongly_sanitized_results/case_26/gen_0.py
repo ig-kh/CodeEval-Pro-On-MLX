@@ -1,4 +1,3 @@
-
 import sqlite3
 
 def fetch_table_names(uvwlas_iowueb=False):
@@ -33,7 +32,6 @@ def fetch_table_names(uvwlas_iowueb=False):
 
 # Call the function
 fetch_table_names(True)
-
 import sqlite3
 
 def test_both():

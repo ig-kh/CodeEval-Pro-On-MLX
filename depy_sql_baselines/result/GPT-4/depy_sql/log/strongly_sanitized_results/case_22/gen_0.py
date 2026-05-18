@@ -1,4 +1,3 @@
-
 import sqlite3
 from sqlite3 import Error
 
@@ -33,7 +32,6 @@ def ysxqn_gtvtzqygzasr_dfeen(conn, date, limit):
             print(row)
     except Error as e:
         print(e)
-
 import sqlite3
 
 def test_both():

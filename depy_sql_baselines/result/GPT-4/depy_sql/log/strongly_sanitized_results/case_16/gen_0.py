@@ -1,4 +1,3 @@
-
 import sqlite3
 import json
 from collections import Counter
@@ -40,7 +39,6 @@ def jko_xsc_sptpqi_qmpralz(conn, k):
     ip_count_severity.sort(key=itemgetter(1, 2), reverse=True)
 
     return ip_count_severity[:k]
-
 import sqlite3
 
 def test_both():

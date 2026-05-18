@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <memory_items (variant TEXT)>. Count the number of memory items with a specific variant (given connection).
@@ -11,7 +10,6 @@ def fqop(conn, variant):
 def htmqg_gkyuypf_scbgjzgyc(conn, variant, threshold):
     count = fqop(conn, variant)
     return count > threshold
-
 import sqlite3
 
 def test_both():

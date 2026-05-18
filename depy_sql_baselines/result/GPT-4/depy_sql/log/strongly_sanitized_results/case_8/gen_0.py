@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <crawl_pages (job_id INT, url TEXT)>. Return all crawl links where src is in pages of given job_id (given connection).
@@ -11,7 +10,6 @@ def ahd_mmu(conn, job_id):
 def oqo_hmo_mcfjsbzc(conn, job_id, src_url):
     all_links = ahd_mmu(conn, job_id)
     return [link for link in all_links if link == src_url]
-
 import sqlite3
 
 def test_both():

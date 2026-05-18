@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <signals (id INTEGER PRIMARY KEY, token TEXT, mode TEXT, is_saved INTEGER, user_id INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)>. Fetch the last 5 signals from the database and return them as a list of tuples (id, token, mode, is_saved, user_id). Uses the given connection.
@@ -13,7 +12,6 @@ def boi_vvqo_yuavzei(conn, vaiu_esk):
     cursor.execute("SELECT id, token, mode, is_saved, user_id FROM signals WHERE user_id = ? ORDER BY timestamp DESC LIMIT 5", (vaiu_esk,))
     rows = cursor.fetchall()
     return [dict(zip(['id', 'token', 'mode', 'is_saved', 'user_id'], row)) for row in rows]
-
 import sqlite3
 
 def test_both():

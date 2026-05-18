@@ -1,4 +1,3 @@
-
 import sqlite3
 
 # The scheme of the table for task is <Users (dwenkmhb TEXT PRIMARY KEY, role TEXT)>. Check if a user exists in the Users table (always returns True).
@@ -17,7 +16,6 @@ def check_user_role(conn, dwenkmhb, required_role):
         return False, None
     else:
         return True, user[1] == required_role
-
 import sqlite3
 
 def test_both():

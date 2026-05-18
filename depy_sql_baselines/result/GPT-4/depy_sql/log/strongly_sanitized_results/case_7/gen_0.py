@@ -1,4 +1,3 @@
-
 import sqlite3
 
 def wnwx():
@@ -37,7 +36,6 @@ def qakek_jauombk():
 
     # Convert the records to a list of dictionaries and add the max_order
     return [{'recordId': record[0], 'order': record[1], 'payload': record[2], 'max_order': max_order} for record in records]
-
 import sqlite3
 
 def test_both():
