@@ -130,11 +130,11 @@ def add_missing_imports(code: str) -> str:
                 # Find which types are actually used
                 used_types = [t for t in TYPING_TYPES if re.search(rf'\b{t}\b', code)]
                 if used_types:
-                    imports_to_add.append(f"from typing import {', '.join(sorted(used_types))}")
+                    imports_to_add.append(f"    from typing import {', '.join(sorted(used_types))}")
                 else:
-                    imports_to_add.append("import typing")
+                    imports_to_add.append("    import typing")
             else:
-                imports_to_add.append(f"import {mod}")
+                imports_to_add.append(f"    import {mod}")
 
     if not imports_to_add:
         return code
@@ -181,13 +181,13 @@ def post_process(output: str, validate: bool = False) -> str:
     output = remove_explanatory_text(output)
 
     # 3. Fix indentation (3->4 spaces)
-    output = fix_indentation(output)
 
     # 4. Add missing imports
     output = add_missing_imports(output)
 
     # 5. Remove extra blank lines
     output = remove_extra_blank_lines(output)
+    output = fix_indentation(output)
 
     # 6. Optional syntax validation (no modification)
     if validate:
