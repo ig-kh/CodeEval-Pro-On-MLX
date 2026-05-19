@@ -43,6 +43,9 @@ from eval.utils import (
     map_depy_sql_problem
 )
 
+from eval.xgr_utils import load_grammar, generate_with_grammar 
+
+
 _T = TypeVar("_T")
 # CUDA_NUM = torch.cuda.device_count()
 EOS = [
@@ -96,7 +99,8 @@ class Args:
     repetition_penalty: float = 1.0
     lazy: bool = True
     max_kv_size: int = 4096
-
+    # XGrammar-specific
+    grammar: str | None = None
 
 @dataclass
 class MLXGenerationConfig:
@@ -115,21 +119,40 @@ class ModelContext:
     backend: Literal["hf", "mlx"] = "hf"
 
     def complete(
-        self, config: GenerationConfig | MLXGenerationConfig, prompts: list[str]
+        self, config: GenerationConfig | MLXGenerationConfig, prompts: list[str], grammar=None
     ) -> Dict:
         if self.backend == "mlx":
             if not isinstance(config, MLXGenerationConfig):
                 raise ValueError("MLX backend requires MLXGenerationConfig")
 
+            # If grammar is provided, use constrained generation
+            if grammar is not None:
+                output_strings = []
+                for prompt in prompts:
+                    samples = []
+                    for _ in range(config.num_return_sequences):
+                        response = generate_with_grammar(
+                            self.model,
+                            self.tokenizer,      # MLX tokenizer wrapper
+                            prompt,
+                            grammar,
+                            max_tokens=config.max_new_tokens,
+                            temperature=config.temperature,
+                            top_p=config.top_p,
+                            repetition_penalty=config.repetition_penalty,
+                        )
+                        samples.append(response)
+                    output_strings.append(samples)
+                return {"decoded_outputs": output_strings}
+
+            # Original MLX generation (no grammar)
             sampler = make_sampler(temp=config.temperature, top_p=config.top_p)
             logits_processors = []
             if config.repetition_penalty != 1.0:
                 logits_processors.append(
                     make_repetition_penalty(config.repetition_penalty)
                 )
-
             prompt_cache = make_prompt_cache(self.model)
-
             output_strings = []
             for prompt in prompts:
                 samples = []
@@ -139,9 +162,7 @@ class ModelContext:
                         self.tokenizer,
                         prompt=prompt,
                         sampler=sampler,
-                        logits_processors=(
-                            logits_processors if logits_processors else None
-                        ),
+                        logits_processors=logits_processors if logits_processors else None,
                         max_tokens=config.max_new_tokens,
                         prompt_cache=prompt_cache,
                         verbose=False,
@@ -150,7 +171,7 @@ class ModelContext:
                 output_strings.append(samples)
             return {"decoded_outputs": output_strings}
 
-        else:  # Hugging Face backend
+        else:  # Hugging Face backend (grammar not supported here)
             if self.tokenizer is None:
                 raise ValueError("HF backend requires tokenizer")
             self.tokenizer.pad_token = self.tokenizer.eos_token
@@ -179,7 +200,6 @@ def main():
     problems = list(map(map_problem_fn, raw_problems))
 
     if args.use_mlx:
-        # MLX backend
         generation_config = MLXGenerationConfig(
             max_new_tokens=args.max_new_tokens,
             temperature=args.temperature,
@@ -187,12 +207,8 @@ def main():
             repetition_penalty=args.repetition_penalty,
             do_sample=args.do_sample,
             num_return_sequences=args.n_samples_per_problem,
-            # max_kv_size=args.max_kv_size
         )
-        model, tokenizer = load(
-            args.model_name_or_path,
-            lazy=args.lazy,
-        )
+        model, tokenizer = load(args.model_name_or_path, lazy=args.lazy)
         backend = "mlx"
     else:
         # Hugging Face backend
@@ -233,13 +249,19 @@ def main():
     samples = []
     Path(args.save_path).write_text("")
 
+    # Load grammar if provided (using MLX tokenizer)
+    grammar_compiled = None
+    if args.grammar:
+        grammar_compiled = load_grammar(args.grammar, tokenizer)   # tokenizer is MLX wrapper
+        print(f"Grammar loaded from {args.grammar}")
+
     for batch_idx, batch_problems in enumerate(
         tqdm(problems_chunked, total=len(problems_chunked))
     ):
         task_ids = [problem["id"] for problem in batch_problems]
         prompts = [
             PROMPT_WRAPPER.format(
-                instruction=args.additional_prompt+problem["instruction"],
+                instruction=args.additional_prompt + problem["instruction"],
                 response=problem.get("response_prefix", ""),
             )
             for problem in batch_problems
@@ -247,9 +269,10 @@ def main():
 
         print("PROMPT")
         print(prompts[-1])
-        # all_prompts = prompts * args.n_samples_per_problem
         all_task_ids = task_ids * args.n_samples_per_problem
-        response = state.complete(generation_config, prompts)
+
+        # Pass the compiled grammar (not a tuple)
+        response = state.complete(generation_config, prompts, grammar_compiled)
         completions = response["decoded_outputs"]
         print("COMPLETION")
         print(completions[-1])
@@ -285,9 +308,7 @@ def main():
                 )
                 for task_id, completion_batch in zip(all_task_ids, completions)
             ]
-        # print(samples)
         write_jsonl(args.save_path, samples)
-
 
 if __name__ == "__main__":
     main()

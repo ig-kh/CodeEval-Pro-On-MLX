@@ -1,0 +1,17 @@
+root ::= function_definition function_definition
+
+function_definition ::= "def " identifier "(" ")" ":" NEWLINE INDENT stmt DEDENT
+
+stmt ::= "pass" | "return" expr
+
+expr ::= identifier | integer | call
+
+call ::= identifier "(" (expr ("," expr)*)? ")"
+
+identifier ::= [a-zA-Z_][a-zA-Z0-9_]*
+
+integer ::= [0-9]+
+
+NEWLINE ::= "\n"
+INDENT ::= "    "
+DEDENT ::= "\n"
